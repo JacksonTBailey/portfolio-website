@@ -1,3 +1,20 @@
+$primary-button-color: #628c93;
+$hover-button-color:#124559;
+
+@mixin navbar(){
+  justify-content: center;
+  font-size: 2rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #AFBFC0;
+  transition: 0.3s;
+
+  &:hover{
+    color: #124559;
+  }
+
+}
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -15,6 +32,8 @@ body {
     height: 100vh;
     width: 100vw;
   }
+
+  //Navbar displayed on all pages
   .site-navbar{
     .navbar-parent {
       display: grid;
@@ -25,44 +44,70 @@ body {
       margin-top: 30px;
       .logo-link{
         grid-column: 2;
+        @include navbar()
       }
-      a {
-        text-decoration: none;
-        color: #AFBFC0;
-        transition: 0.3s;
-  
-        &:hover{
-          color: #124559;
-        }
-      }
+
       .navbar-Home{
         grid-column: 4;
-        justify-content: center;
-        font-size: 2rem;
-        margin-top: 1rem;      
+        @include navbar();
+        margin-top: none;
       }
+
       .navbar-Projects{
         grid-column: 5;
-        justify-content: center;
-        font-size: 2rem;
-        margin-top: 1rem;      
-  
+        @include navbar()
       }
+
       .navbar-About{
         grid-column: 6;
-        grid-row:1;
-        justify-content: center;
-        font-size: 2rem;
-        margin-top: 1rem;      
-  
+        @include navbar()    
       }
+
       .navbar-Contact{
         grid-column: 7;
-        justify-content: center;
-        font-size: 2rem;
-        margin-top: 1rem;      
-  
+        @include navbar()
       }
     }
+  }
+
+  //Footer displayed on every page
+  .regular-footer{
+    display: grid;
+    grid-template-rows: 8vh 2vh;
+
+    .footer-quote{
+      grid-row: 1;
+      display:grid;
+      grid-template-rows: 6vh 2vh;
+
+      .quote-text{
+        grid-row: 1;
+      }
+      .quote-author{
+        grid-row: 2;
+      }
+    }
+    .social{
+      grid-row: 2;
+      .footer-social{
+        color: $primary-button-color;
+        &:hover {
+          color: $hover-button-color
+        }
+      }
+    }
+    // .github{
+    //   .fa-github{
+        
+    //   }
+    // }
+    // .linkedin{
+    //   .fa-linkedin{
+    //   }
+    // }
+    // .email{
+    //   .fa-envelope{
+    //   }
+    // }
   }
   
