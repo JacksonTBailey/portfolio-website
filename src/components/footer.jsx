@@ -29,7 +29,10 @@ export default function Footer() {
                 <p className="quote-text">{featuredQuote[randomQuote].quote}</p>
                 <p className="quote-author">{featuredQuote[randomQuote].author}</p>
             </div>
-            {mappedSocials}
+            <div className="social-icons">
+                {mappedSocials}
+            </div>
+            <p>Handcrafted by me &#169; 2021</p>
         </footer>
     )
 }

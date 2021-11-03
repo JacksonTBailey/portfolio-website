@@ -10,9 +10,23 @@ $hover-button-color:#124559;
   transition: 0.3s;
 
   &:hover{
-    color: #124559;
+    color: $hover-button-color;
   }
+}
 
+@mixin socialMedia(){
+  font-size: 1.5rem;
+  grid-row: 1;
+  justify-self: center;
+  margin: 15px
+
+}
+
+@mixin quote(){
+  grid-column: 2;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 body {
@@ -72,42 +86,52 @@ body {
 
   //Footer displayed on every page
   .regular-footer{
-    display: grid;
-    grid-template-rows: 8vh 2vh;
-
+    display: flex;
+    flex-direction: column;
+    padding: 10vh 0vw;
+    
     .footer-quote{
       grid-row: 1;
       display:grid;
-      grid-template-rows: 6vh 2vh;
+      grid-template-rows: minmax(min-content, auto) minmax(min-content, auto);
+      grid-template-columns: 30vw 40vw 30vw;
 
       .quote-text{
         grid-row: 1;
+        @include quote();
       }
       .quote-author{
         grid-row: 2;
+        @include quote();
       }
     }
-    .social{
-      grid-row: 2;
+
+    .social-icons{
+      display: grid;
+      grid-template-columns: 40vw 4vw 4vw 4vw 40vw;
+      grid-column-gap: 2vw;
+      
       .footer-social{
         color: $primary-button-color;
         &:hover {
           color: $hover-button-color
         }
       }
+      .github{
+        grid-column: 2;
+        @include socialMedia()
+      }
+      .linkedin{
+        grid-column: 3;
+        @include socialMedia()
+      }
+      .email{
+        grid-column: 4;
+        @include socialMedia()
+      }
     }
-    // .github{
-    //   .fa-github{
-        
-    //   }
-    // }
-    // .linkedin{
-    //   .fa-linkedin{
-    //   }
-    // }
-    // .email{
-    //   .fa-envelope{
-    //   }
-    // }
+    p{
+      align-self: center;
+    }
   }
   

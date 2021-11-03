@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import {Navbar} from './components/navbar.jsx';
 import reportWebVitals from './reportWebVitals';
-import Footer from './components/footer';
+
 
 ReactDOM.render(
   <React.StrictMode>
