@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
+import Home from './components/home';
 import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Navbar />
-    <Footer/>
+    <Home />
   </React.StrictMode>,
   document.getElementById('root')
 );
