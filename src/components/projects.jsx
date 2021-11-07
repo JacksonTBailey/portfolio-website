@@ -9,11 +9,11 @@ export default function Projects() {
             technologies: ["HTML", "CSS", "Flexbox", "JavaScript", "Atom", "GitHub"],
             links: [
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/Text_Adventure_Game", class: "fab fa-github"},
-                {name: "External Link", url: "https://jacksontbailey.github.io/Text_Adventure_Game/", class: unknown}
+                {name: "External Link", url: "https://jacksontbailey.github.io/Text_Adventure_Game/", class: "fas fa-external-link-alt"}
                 ],
-            image: [
-                {getImageFrom: ""},
-            ]
+            // image: [
+            //     {src: "", alt=""},
+            // ]
         },
         {
             title: "Weather Wherever",
@@ -21,11 +21,11 @@ export default function Projects() {
             technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API", "OpenWeatherMap API", "Teleport API"],
             links: [
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/WeatherApi", class: "fab fa-github"},
-                {name: "External Link", url: "still need to publish", class: unknown}
+                {name: "External Link", url: "still need to publish", class: "fas fa-external-link-alt"}
                 ],
-            image: [
-                {getImageFrom: ""},
-            ]
+            // image: [
+            //     {src: "", alt=""},
+            // ]
         },
         {
             title: "Simon",
@@ -33,40 +33,39 @@ export default function Projects() {
             technologies: ["HTML", "CSS", "JavaScript", "Atom", "Git", "GitHub"],
             links: [
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/Simon-Game", class: "fab fa-github"},
-                {name: "External Link", url: "https://crabby-curve.surge.sh/", class: unknown}
+                {name: "External Link", url: "https://crabby-curve.surge.sh/", class: "fas fa-external-link-alt"}
                 ],
-            image: [
-                {getImageFrom: ""},
-            ]
+            // image: [
+            //     {src: "", alt=""},
+            // ]
         }
     ]
+
+    const mappedProjects = featuredProjects.map((project)=>{
+        return( 
+        <div className="featuredProject">
+            <div className="project-content">
+                <p>Featured Project</p>
+                <h3 key={project.title} className="project-title">{project.title}</h3>
+                <div className="project-description">{project.description}</div>
+                <ul className="project-tech-used">{project.technologies.forEach(technology => {
+                    <li key={technology}>{technology}</li>})}
+                </ul>
+                <div className="project-links">{project.links.forEach(link =>{
+                    <a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>})}
+                </div>
+                {/* <div className="project-image">
+                    <a href={link.url} target="_blank" rel="noreferrer">
+                        <img src={project.image[src]} alt={project.image[alt]} />
+                    </a>
+                </div> */}
+            </div>
+        </div>)})
 
     return (
         <div>
             <h2>Some of My Creations</h2>
-            <div className="featuredProject">
-                <div className="project-content">
-                    <p>Featured Project</p>
-                    <h3 className="project-title">Adventures in Yolrein</h3>
-                    <div className="project-description">
-                        A semi-open-world, text adventure game I created using vanilla JavaScript. Unlike most text adventure games, Adventures in Yolrein allows 
-                        you to explore the world and unlock additional content in previously visited areas based on choices you've made since the first time you've visited.</div>
-                    <ul className="project-tech-used">
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Flexbox</li>
-                        <li>JavaScript</li>
-                        <li>Atom</li>
-                    </ul>
-                    <div className="project-links">
-                        <p>GitHub</p>
-                        <p>Live Website</p>
-                    </div>
-                </div>
-                <div className="project-image">
-                    <p>Insert image here</p>
-                </div>
-            </div>
+            {mappedProjects}
         </div>
     )
 }
