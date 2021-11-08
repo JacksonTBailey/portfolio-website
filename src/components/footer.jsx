@@ -1,10 +1,8 @@
 import React from 'react'
-import {useEffect} from 'react'
 import Timer from './timer';
 
 
 export default function Footer() {
-    useEffect(()=>{console.log("Mounted"); return ()=>console.log("Unmounted")})
 
     const featuredQuote = [
         {author: "Vincent van Gogh", text: "Normality is a paved road: It’s comfortable to walk, but no flowers grow on it."},
@@ -29,8 +27,8 @@ export default function Footer() {
     return (
         <footer className="regular-footer">
             <div className="footer-quote">
-                <p className="quote-text"><Timer items={featuredQuote} startingItemIndex={0} timer={1000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="text"/></p>
-                <p className="quote-author"><Timer items={featuredQuote} startingItemIndex={0} timer={1000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="author"/></p>
+                <p className="quote-text"><Timer items={featuredQuote} startingItemIndex={0} timer={10000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="text"/></p>
+                <p className="quote-author"><Timer items={featuredQuote} startingItemIndex={0} timer={10000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="author"/></p>
             </div>
             <div className="social-icons">
                 {mappedSocials}
