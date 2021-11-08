@@ -1,34 +1,27 @@
 import React from 'react'
+import {useEffect} from 'react'
+import TimerFooter from './timer-footer';
+
 
 export default function Footer() {
+    useEffect(()=>{console.log("Mounted"); return ()=>console.log("Unmounted")})
     const socialMedia = [
         {name: "linkedin", url: "https://www.linkedin.com/in/jackson95bailey/", class: "fab fa-linkedin"},
         {name: "github", url: "https://github.com/JacksonTBailey", class: "fab fa-github"},
         {name: "email", url: "mailto: bailey95jackson@gmail.com", class: "far fa-envelope"}
     ]
-    
-    const featuredQuote = [
-        {author: "Vincent van Gogh", quote: "Normality is a paved road: It’s comfortable to walk, but no flowers grow on it."},
-        {author: "Leonardo da Vinci", quote: "Learning never exhausts the mind."},
-        {author: "Katsumoto — The Last Samurai", quote: "The perfect blossom is a rare thing. You could spend your life looking for one, and it would not be a wasted life."},
-        {author: "Obi-Wan Kenobi", quote: "Hello there."},
-        {author: "Bruce Lee", quote: "I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times."}
-    ]
-
-    const mappedSocials = socialMedia.map((socialItem)=>{return <div key={socialItem.name} className={`social ${socialItem.name}`}>
-            <a href={socialItem.url} target="_blank" rel="noreferrer">
-                <i className={`${socialItem.class} footer-social fa-lg`} aria-hidden="true"></i>
-            </a>
-        </div>})
-    
-    const randomQuote= Math.floor(Math.random()*featuredQuote.length)
+        const mappedSocials = socialMedia.map((socialItem)=>{return <div key={socialItem.name} className={`social ${socialItem.name}`}>
+        <a href={socialItem.url} target="_blank" rel="noreferrer">
+            <i className={`${socialItem.class} footer-social fa-lg`} aria-hidden="true"></i>
+        </a>
+    </div>})
 
 
     return (
         <footer className="regular-footer">
             <div className="footer-quote">
-                <p className="quote-text">{featuredQuote[randomQuote].quote}</p>
-                <p className="quote-author">{featuredQuote[randomQuote].author}</p>
+                <p className="quote-text"><TimerFooter part="text"/></p>
+                <p className="quote-author"><TimerFooter part="author"/></p>
             </div>
             <div className="social-icons">
                 {mappedSocials}
