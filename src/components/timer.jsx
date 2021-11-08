@@ -1,19 +1,18 @@
 import React, {useEffect, useState} from "react";
 
-export default function Timer() {
-    const topSkills = ["HTML", "CSS", "SCSS", "JavaScript", "React", "Bootstrap", "Node.js", "REST"];
-    const [skill, setSkill] =  useState(0)
-    let oneOfMySkills= (skill) => topSkills[skill%topSkills.length];
+export default function Timer({items, startingItemIndex, timer, changeFunction, part}) {
+    const [item, setItem] =  useState(startingItemIndex)
+    let oneOfMyItems = (item) => items[item%items.length];
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setSkill(prevSkill => prevSkill+1)
-        }, 500);
+            setItem(changeFunction)
+        }, timer);
         return () => clearInterval(interval)}, [])
    
     return (
         <React.Fragment>
-            {oneOfMySkills(skill)}
+            {part ? oneOfMyItems(item)[part] : oneOfMyItems(item)}
         </React.Fragment>
     )
 }
