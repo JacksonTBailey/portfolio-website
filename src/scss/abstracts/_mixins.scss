@@ -1,0 +1,25 @@
+@mixin navbar {
+    display: flex;
+    transition: 0.3s;
+    color: colors.$primary-button-color;
+    font-size: x-large;
+
+    &:hover{
+        color: colors.$hover-button-color;
+    }
+}
+
+@mixin socialMedia(){
+    font-size: 1.5rem;
+    grid-row: 1;
+    justify-self: center;
+    margin: 15px
+  
+}
+  
+@mixin quote(){
+    grid-column: 2;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}

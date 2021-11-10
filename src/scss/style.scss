@@ -1,33 +1,5 @@
-$primary-button-color: #628c93;
-$hover-button-color:#124559;
-
-@mixin navbar(){
-  justify-content: center;
-  font-size: 2rem;
-  margin-top: 1rem;
-  text-decoration: none;
-  color: #AFBFC0;
-  transition: 0.3s;
-
-  &:hover{
-    color: $hover-button-color;
-  }
-}
-
-@mixin socialMedia(){
-  font-size: 1.5rem;
-  grid-row: 1;
-  justify-self: center;
-  margin: 15px
-
-}
-
-@mixin quote(){
-  grid-column: 2;
-  text-align: center;
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
+@use './abstracts' as *;
+@use './scssPartials/navbar' as n;
 
 body {
     margin: 0;
@@ -48,41 +20,8 @@ body {
   }
 
   //Navbar displayed on all pages
-  .site-navbar{
-    .navbar-parent {
-      display: grid;
-      grid-template-columns: 10vw 20vw 20vw 10vw 10vw 10vw 10vw 10vw;
-      top: 25%;
-      max-height: 10vh;
-      text-align: center;
-      margin-top: 30px;
-      .logo-link{
-        grid-column: 2;
-        @include navbar()
-      }
+    @include n.navbar;
 
-      .navbar-Home{
-        grid-column: 4;
-        @include navbar();
-        margin-top: none;
-      }
-
-      .navbar-Projects{
-        grid-column: 5;
-        @include navbar()
-      }
-
-      .navbar-About{
-        grid-column: 6;
-        @include navbar()    
-      }
-
-      .navbar-Contact{
-        grid-column: 7;
-        @include navbar()
-      }
-    }
-  }
 
   //Footer displayed on every page
   .regular-footer{
@@ -98,11 +37,11 @@ body {
 
       .quote-text{
         grid-row: 1;
-        @include quote();
+        @include quote;
       }
       .quote-author{
         grid-row: 2;
-        @include quote();
+        @include quote;
       }
     }
 
@@ -111,12 +50,12 @@ body {
       grid-template-columns: 40vw 4vw 4vw 4vw 40vw;
       grid-column-gap: 2vw;
       
-      .footer-social{
-        color: $primary-button-color;
-        &:hover {
-          color: $hover-button-color
-        }
-      }
+      // .footer-social{
+      //   color: navbar.$primary-button-color;
+      //   &:hover {
+      //     color: navbar.$hover-button-color
+      //   }
+      // }
       .github{
         grid-column: 2;
         @include socialMedia()
