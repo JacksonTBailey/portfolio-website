@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin buttonColored () {
+    transition: 0.3s;
+    color: $primary-button-color;
+    font-size: x-large;
+
+    &:hover{
+        color: $hover-button-color;
+    }
+}
+
+@mixin flexParent($flow, $justify, $align){
+    display: flex;
+    flex-flow: $flow;
+    justify-content: $justify;
+    align-items: $align;
+}
+@mixin flexChild($order, $flex){
+    display:flex;
+    order: $order;
+    flex: $flex;
+}
+
+@mixin socialMedia(){
+    font-size: 1.5rem;
+    grid-row: 1;
+    justify-self: center;
+    margin: 15px
+  
+}
+  
+@mixin quote(){
+    grid-column: 2;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+@mixin breakpoint($point){
+    @if $point ==md {
+        @media (min-width: 48em){
+            @content;
+        }
+    }
+}

@@ -1,0 +1,27 @@
+//This is where I'll keep all of the scss for my navbar
+@import 'mixins';
+@import 'variables';
+
+.site-navbar {
+    @include flexParent($flow: row nowrap, $justify:center, $align: flex-end);
+    width: 100vw;
+    height: 10vh;
+    background-color: $background-color-nav;
+    .logo-link{
+        @include flexChild($order: 1, $flex: default);
+        height:200px;
+        width:300px;
+        max-width: 10vw;
+        max-height: 10vh;
+    }
+    .nav-links{
+        @include flexChild($order: 2, $flex: 2 1 auto);
+        @include buttonColored;
+        flex: 2;
+    }
+    .toggle{
+        @include flexChild($order: 3, $flex: default);
+        color: blue;
+
+    }
+}

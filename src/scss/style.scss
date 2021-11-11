@@ -1,13 +1,15 @@
-@use './abstracts' as *;
-@use './scssPartials/navbar' as n;
+@import 'variables';
+@import 'navbar';
 
 body {
     margin: 0;
+    padding:0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
   
   code {
@@ -18,10 +20,6 @@ body {
     height: 100vh;
     width: 100vw;
   }
-
-  //Navbar displayed on all pages
-    @include n.navbar;
-
 
   //Footer displayed on every page
   .regular-footer{
