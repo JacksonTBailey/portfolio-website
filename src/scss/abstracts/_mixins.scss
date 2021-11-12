@@ -1,11 +1,13 @@
-@mixin navbar {
+@use "./colors" as a;
+
+@mixin navbarMixin {
     display: flex;
     transition: 0.3s;
-    color: colors.$primary-button-color;
+    color: a.$primary-button-color;
     font-size: x-large;
 
     &:hover{
-        color: colors.$hover-button-color;
+        color: a.$hover-button-color;
     }
 }
 

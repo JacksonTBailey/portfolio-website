@@ -11,7 +11,7 @@ export function Navbar() {
             </div>
             <div className="middle-section">
                 {mappedNavbar}
-                <div className="toggle"><a href="#"><i class="fas fa-bars"></i></a></div>
+                <div className="toggle"><a href="/"><i class="fas fa-bars"></i></a></div>
             </div>
             <div className="right-section"></div>
         </nav>
