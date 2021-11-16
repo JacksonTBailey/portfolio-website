@@ -1,19 +1,35 @@
 import React from "react";
 
 export function Navbar() {
-    const navbarArray= ["Home","Projects", "About", "Contact"]
-    const mappedNavbar = navbarArray.map((navItem) =>{return <a key={navItem} className={`navbar navbar-${navItem}`} href= {`/${navItem}`}>{navItem}</a>})
     
     return(
-        <nav className="site-navbar">
-            <div className="left-section">
-                <a href="/" className="logo-link"><img className="site-logo" src="images/logo.svg" alt="Code for Coffee Logo" /></a>
-            </div>
-            <div className="middle-section">
-                {mappedNavbar}
-                <div className="toggle"><a href="/"><i class="fas fa-bars"></i></a></div>
-            </div>
-            <div className="right-section"></div>
-        </nav>
+        <header className="primary-header flex">
+                <img src="./images/logo.svg" alt="Logo" className="logo" />
+            <nav>
+                <ul id= "primary-navigation" className="primary-navigation flex">
+                    <li className="active">
+                        <a href="home.jsx">
+                            <span aria-hidden="true">00</span>Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="projects.jsx">
+                            <span aria-hidden="true">01</span>Projects
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.jsx">
+                            <span aria-hidden="true">02</span>About
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.jsx">
+                            <span aria-hidden="true">03</span>Contact
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </header>
     );
 }

@@ -49,12 +49,12 @@ body {
       grid-template-columns: 40vw 4vw 4vw 4vw 40vw;
       grid-column-gap: 2vw;
       
-      // .footer-social{
-      //   color: navbar.$primary-button-color;
-      //   &:hover {
-      //     color: navbar.$hover-button-color
-      //   }
-      // }
+      .footer-social{
+        color: $primary-button-color;
+        &:hover {
+          color: $hover-button-color
+        }
+      }
       .github{
         grid-column: 2;
         @include socialMedia()
