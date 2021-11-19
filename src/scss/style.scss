@@ -23,7 +23,11 @@ body {
     width: 100vw;
   }
 
-  //Navbar displayed on all pages
+  //Home Page
+
+  .top-skills{
+    color: $text-color-highlight;
+  }
 
 
   //Footer displayed on every page
@@ -45,6 +49,7 @@ body {
       .quote-author{
         grid-row: 2;
         @include quote;
+        color: $text-color-highlight
       }
     }
 
@@ -56,7 +61,7 @@ body {
       .footer-social{
         color: $primary-button-color;
         &:hover {
-          color: $hover-button-color
+          color: $hover-button-color;
         }
       }
       .github{
