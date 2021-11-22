@@ -64,7 +64,7 @@ export default function Projects() {
 
     return (
         <div>
-            <h2>Some of My Creations</h2>
+            <h2> 01. Some of My Creations</h2>
             {mappedProjects}
         </div>
     )

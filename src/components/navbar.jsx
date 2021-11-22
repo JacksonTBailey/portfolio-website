@@ -6,7 +6,7 @@ export function Navbar() {
             
         <img src="./images/jb-logo-2.svg" alt="Logo" className="logo" />
         
-        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" onClick={hamburgerToggle}>
+        <button className="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" onClick={hamburgerToggle}>
             <span className="sr-only">Menu</span>
         </button>
         
