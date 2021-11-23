@@ -48,11 +48,11 @@ export default function Projects() {
                 <p>Featured Project</p>
                 <h3 key={project.title} className="project-title">{project.title}</h3>
                 <div className="project-description">{project.description}</div>
-                <ul className="project-tech-used">{project.technologies.forEach(technology => {
-                    <li key={technology}>{technology}</li>})}
+                <ul className="project-tech-used">{project.technologies.map(technology => {
+                    return(<li key={technology}>{technology}</li>)})}
                 </ul>
-                <div className="project-links">{project.links.forEach(link =>{
-                    <a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>})}
+                <div className="project-links">{project.links.map(link =>{
+                    return(<a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
                 </div>
                 {/* <div className="project-image">
                     <a href={link.url} target="_blank" rel="noreferrer">
@@ -63,7 +63,7 @@ export default function Projects() {
         </div>)})
 
     return (
-        <div>
+        <div className="project-section">
             <h2> 01. Some of My Creations</h2>
             {mappedProjects}
         </div>

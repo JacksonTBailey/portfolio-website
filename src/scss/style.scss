@@ -20,7 +20,15 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+main{
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1600px;
+  min-height: 100vh;
+  padding-left: clamp(20px, 8vw, 200px);
+  padding-right: clamp(20px, 8vw, 200px);
 
+}
   //Home Page
 .home-header{
   display: flex;
@@ -30,9 +38,8 @@ body {
   flex-direction: column;
   align-items: flex-start;
   min-height: 100vh;
-  padding-left: clamp(2rem, 8vw, 12rem);
-  padding-right: clamp(2rem, 8vw, 12rem);
-
+  // padding-left: clamp(20px, 8vw, 200px);
+  // padding-right: clamp(20px, 8vw, 200px);
   .hero-h1{
     @include paragraph;
   }
@@ -55,6 +62,19 @@ body {
 
   .top-skills{
     color: $text-color-highlight;
+  }
+}
+
+.styled-hero{
+  max-width: 1000px;
+}
+
+//Projects page
+.project-section{
+  display: grid;
+  grid-template-columns: repeat(10, 10vw);
+  grid-template-rows: repeat(21, auto);
+  .featured-projects{
   }
 }
 
