@@ -50,3 +50,19 @@
     line-height: 1.1;
 
 }
+@mixin projectSection($prop){
+    justify-self: $prop;
+    max-width: 540px;
+   
+}
+
+@mixin projectBox(){
+    background-color: #2E282A ;
+    padding: 2% 2%;
+}
+
+@mixin listNoBullet(){
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+}

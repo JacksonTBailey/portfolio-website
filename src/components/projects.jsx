@@ -5,6 +5,7 @@ export default function Projects() {
     const featuredProjects= [
         {
             title: "Adventures in Yolrein",
+            number:1,
             description: `A semi-open-world, text adventure game I created using vanilla JavaScript. Unlike most text adventure games, Adventures in Yolrein allows you to explore the world and unlock additional content in previously visited areas based on choices you've made since the first time you've visited.`,
             technologies: ["HTML", "CSS", "Flexbox", "JavaScript", "Atom", "GitHub"],
             links: [
@@ -17,6 +18,7 @@ export default function Projects() {
         },
         {
             title: "Weather Wherever",
+            number:2,
             description: `Get the weather for any city throughout the world through my weather API website. Don't want to view it in Fahrenheit? No problem! View it in Celcius too!`,
             technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API", "OpenWeatherMap API", "Teleport API"],
             links: [
@@ -29,6 +31,7 @@ export default function Projects() {
         },
         {
             title: "Simon",
+            number:3,
             description: `A remake of the classic game of simon. This was one of my first projects using JavaScript that I worked on, and still enjoy it to this day!`,
             technologies: ["HTML", "CSS", "JavaScript", "Atom", "Git", "GitHub"],
             links: [
@@ -43,7 +46,7 @@ export default function Projects() {
 
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
-        <div className="featuredProject">
+        <div className={`project-${project.number}`}>
             <div className="project-content">
                 <p>Featured Project</p>
                 <h3 key={project.title} className="project-title">{project.title}</h3>
@@ -65,7 +68,9 @@ export default function Projects() {
     return (
         <div className="project-section">
             <h2> 01. Some of My Creations</h2>
-            {mappedProjects}
+            <div className="featured-projects">
+                {mappedProjects}
+            </div>
         </div>
     )
 }
