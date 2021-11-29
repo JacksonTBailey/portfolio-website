@@ -52,7 +52,7 @@
 }
 @mixin projectSection($prop){
     justify-self: $prop;
-    max-width: 540px;
+    max-width: 600px;
    
 }
 
@@ -62,7 +62,20 @@
 }
 
 @mixin listNoBullet(){
+    display: inline-flex;
+    gap:20px;
+    flex-wrap: wrap;
     text-decoration: none;
     list-style: none;
     padding: 0;
 }
+
+@mixin flexDisplay($flex-justify, $webkit-justify) {
+    display: flex;
+    justify-content: $flex-justify;
+    -webkit-box-pack: $webkit-justify;
+}
+
+// @media projectGridLayout(){
+    
+// }

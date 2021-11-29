@@ -12,9 +12,9 @@ export default function Projects() {
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/Text_Adventure_Game", class: "fab fa-github"},
                 {name: "External Link", url: "https://jacksontbailey.github.io/Text_Adventure_Game/", class: "fas fa-external-link-alt"}
                 ],
-            // image: [
-            //     {src: "", alt=""},
-            // ]
+            image: [
+                {src: "images/text_adventure_game.png", alt: "Adventures in Yolrein"},
+            ]
         },
         {
             title: "Weather Wherever",
@@ -25,9 +25,9 @@ export default function Projects() {
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/WeatherApi", class: "fab fa-github"},
                 {name: "External Link", url: "still need to publish", class: "fas fa-external-link-alt"}
                 ],
-            // image: [
-            //     {src: "", alt=""},
-            // ]
+            image: [
+                {src: "images/weather_api.png", alt: "Weather Wherever"},
+            ]
         },
         {
             title: "Simon",
@@ -38,9 +38,9 @@ export default function Projects() {
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/Simon-Game", class: "fab fa-github"},
                 {name: "External Link", url: "https://crabby-curve.surge.sh/", class: "fas fa-external-link-alt"}
                 ],
-            // image: [
-            //     {src: "", alt=""},
-            // ]
+            image: [
+                {src: "images/simon_game.png", alt: "Simon Game"},
+            ]
         }
     ]
 
@@ -51,17 +51,19 @@ export default function Projects() {
                 <p>Featured Project</p>
                 <h3 key={project.title} className="project-title">{project.title}</h3>
                 <div className="project-description">{project.description}</div>
-                <ul className="project-tech-used">{project.technologies.map(technology => {
-                    return(<li key={technology}>{technology}</li>)})}
-                </ul>
-                <div className="project-links">{project.links.map(link =>{
-                    return(<a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
+                <div className="project-tech-flex">
+                    <ul className="project-tech-used">{project.technologies.map(technology => {
+                        return(<li key={technology}>{technology}</li>)})}
+                    </ul>
                 </div>
-                {/* <div className="project-image">
-                    <a href={link.url} target="_blank" rel="noreferrer">
-                        <img src={project.image[src]} alt={project.image[alt]} />
+                <div className="project-links">{project.links.map(link =>{
+                    return(<a href={project.links.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
+                </div>
+                <div className="project-image">
+                    <a href={project.links.url} target="_blank" rel="noreferrer">
+                        <img src={project.image[0].src} alt={project.image.alt} />
                     </a>
-                </div> */}
+                </div>
             </div>
         </div>)})
 

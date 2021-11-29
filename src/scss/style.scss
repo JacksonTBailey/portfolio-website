@@ -18,12 +18,11 @@ body {
   
 main{
   overflow-x: hidden;
-  margin: 0 auto;
   max-width: 1600px;
   width: 100vw;
   min-height: 100vh;
-  padding-left: clamp(20px, 8vw, 200px);
-  padding-right: clamp(20px, 8vw, 200px);
+  margin-left: clamp(20px, 8vw, 200px);
+  margin-right: clamp(20px, 8vw, 200px);
 
 }
   //Home Page
@@ -75,22 +74,47 @@ main{
   .project-description{
     @include projectBox();
   }
-  .project-tech-used{
-    @include listNoBullet();
+
+  .featured-projects{
     display: grid;
-    grid-template-columns: repeat(4, );
-    grid-gap: 7px
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
   }
 
   .project-1{
-    @include projectSection(right)
+    @include projectSection(right);
+    
+    .project-tech-flex{
+      @include flexDisplay(flex-end, end);
+  
+      .project-tech-used{
+        @include listNoBullet;
+      }
+    }
   }
+
   .project-2{
     @include projectSection(left);
+    
+    .project-tech-flex{
+      @include flexDisplay(flex-start, start);
+  
+      .project-tech-used{
+        @include listNoBullet;
+      }
+    }
   }
+
   .project-3{
     @include projectSection(right);
 
+    .project-tech-flex{
+      @include flexDisplay(flex-end, end);
+  
+      .project-tech-used{
+        @include listNoBullet;
+      }
+    }
   }
 }
 
