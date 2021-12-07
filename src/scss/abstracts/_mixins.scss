@@ -1,5 +1,6 @@
 @use "./colors" as a;
 
+
 @mixin navbarMixin {
     display: flex;
     transition: 0.3s;
@@ -50,24 +51,138 @@
     line-height: 1.1;
 
 }
-@mixin projectSection($prop){
-    justify-self: $prop;
-    max-width: 600px;
-   
+@mixin projectSectionRight(){
+    display: grid;
+    justify-self: center;
+    justify-items: right ;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, auto);
+    max-width:1200px;
+
+    p{
+        grid-column: 11/13;
+        grid-row: 1;
+        margin: 0;
+        align-self: flex-end;
+    }
+    
+    .project-image{
+        grid-column: 1/8;
+        grid-row: 1/6;
+        justify-self: left;
+    }
+      
+    .project-title{
+        grid-column:10/13;
+        grid-row: 2;
+        margin: 0;
+        align-self: center;
+    }
+      
+    .project-description{
+        grid-column: 6/13;
+        grid-row: 3/4;
+        position: relative;
+        z-index: 2;
+    }
+      
+    .project-tech-flex{
+        @include flexDisplay(flex-end, end);
+        grid-column: 8/13;
+        grid-row: 4/5;
+  
+        .project-tech-used{
+          @include listNoBullet;
+        }
+    }
+  
+    .project-links{
+        @include flexDisplay(flex-end, end);
+        grid-column: 12/13;
+        grid-row:5/6;
+        
+        .fab, .fas{
+            margin: 0 20px;
+            font-size: x-large;
+        }
+    }
+
 }
 
+@mixin projectSectionLeft(){
+    display: grid;
+    justify-self: center;
+    justify-items: left ;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(6, auto);
+    max-width:1200px;
+
+    p{
+        grid-column: 1/2;
+        grid-row: 1;
+        margin: 0;
+        align-self: flex-end;
+    }
+    
+    .project-image{
+        grid-column: 6/13;
+        grid-row: 1/6;
+        justify-self: right;
+    }
+      
+    .project-title{
+        grid-column:1/5;
+        grid-row: 2;
+        margin: 0;
+        align-self: center;
+    }
+      
+    .project-description{
+        grid-column: 1/8;
+        grid-row: 3/4;
+        position: relative;
+        z-index: 2;
+    }
+      
+    .project-tech-flex{
+        @include flexDisplay(flex-end, end);
+        grid-column: 1/6;
+        grid-row: 4/5;
+  
+        .project-tech-used{
+          @include listNoBullet;
+        }
+    }
+  
+    .project-links{
+        @include flexDisplay(flex-end, end);
+        grid-column: 1/2;
+        grid-row:5/6;
+        
+        .fab, .fas{
+            margin: 0 20px;
+            font-size: x-large;
+        }
+    }
+}
+
+
 @mixin projectBox(){
+    align-self: center;
     background-color: #2E282A ;
-    padding: 2% 2%;
+    padding: 5% 2%;
+
 }
 
 @mixin listNoBullet(){
     display: inline-flex;
-    gap:20px;
+    align-content: center;
+    column-gap: 20px;
     flex-wrap: wrap;
     text-decoration: none;
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 @mixin flexDisplay($flex-justify, $webkit-justify) {
@@ -75,7 +190,3 @@
     justify-content: $flex-justify;
     -webkit-box-pack: $webkit-justify;
 }
-
-// @media projectGridLayout(){
-    
-// }

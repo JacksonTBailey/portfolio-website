@@ -47,23 +47,21 @@ export default function Projects() {
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
         <div className={`project-${project.number}`}>
-            <div className="project-content">
-                <p>Featured Project</p>
-                <h3 key={project.title} className="project-title">{project.title}</h3>
-                <div className="project-description">{project.description}</div>
-                <div className="project-tech-flex">
-                    <ul className="project-tech-used">{project.technologies.map(technology => {
-                        return(<li key={technology}>{technology}</li>)})}
-                    </ul>
-                </div>
-                <div className="project-links">{project.links.map(link =>{
-                    return(<a href={project.links.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
-                </div>
-                <div className="project-image">
-                    <a href={project.links.url} target="_blank" rel="noreferrer">
-                        <img src={project.image[0].src} alt={project.image.alt} />
-                    </a>
-                </div>
+            <p>Featured Project</p>
+            <h3 key={project.title} className="project-title">{project.title}</h3>
+            <div className="project-description">{project.description}</div>
+            <div className="project-tech-flex">
+                <ul className="project-tech-used">{project.technologies.map(technology => {
+                    return(<li key={technology}>{technology}</li>)})}
+                </ul>
+            </div>
+            <div className="project-links">{project.links.map(link =>{
+                return(<a href={project.links.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
+            </div>
+            <div className="project-image">
+                <a href={project.links.url} target="_blank" rel="noreferrer">
+                    <img src={project.image[0].src} alt={project.image.alt} />
+                </a>
             </div>
         </div>)})
 
