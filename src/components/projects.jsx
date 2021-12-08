@@ -23,7 +23,7 @@ export default function Projects() {
             technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API", "OpenWeatherMap API", "Teleport API"],
             links: [
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/WeatherApi", class: "fab fa-github"},
-                {name: "External Link", url: "still need to publish", class: "fas fa-external-link-alt"}
+                {name: "External Link", url: "https://weather-wherever.netlify.app/", class: "fas fa-external-link-alt"}
                 ],
             image: [
                 {src: "images/weather_api.png", alt: "Weather Wherever"},
@@ -56,10 +56,10 @@ export default function Projects() {
                 </ul>
             </div>
             <div className="project-links">{project.links.map(link =>{
-                return(<a href={project.links.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
+                return(<a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
             </div>
             <div className="project-image">
-                <a href={project.links.url} target="_blank" rel="noreferrer">
+                <a href={project.links[1].url} target="_blank" rel="noreferrer">
                     <img src={project.image[0].src} alt={project.image.alt} />
                 </a>
             </div>

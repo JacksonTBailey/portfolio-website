@@ -126,25 +126,24 @@ h2{
     .social-icons{
       display: grid;
       grid-template-columns: 40vw 4vw 4vw 4vw 40vw;
-      grid-column-gap: 2vw;
+      column-gap: 2vw;
       
       .footer-social{
-        color: $primary-button-color;
-        &:hover {
-          color: $hover-button-color;
-        }
+        @include socialMedia();
       }
+
       .github{
         grid-column: 2;
-        @include socialMedia()
+        @include socialMedia();
+
       }
       .linkedin{
         grid-column: 3;
-        @include socialMedia()
+        @include socialMedia();
       }
       .email{
         grid-column: 4;
-        @include socialMedia()
+        @include socialMedia();
       }
     }
     p{

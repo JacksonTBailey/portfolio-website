@@ -13,10 +13,16 @@
 }
 
 @mixin socialMedia(){
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     grid-row: 1;
     justify-self: center;
-    margin: 15px
+    margin: 5px 15px;
+    cursor:pointer;
+    color: a.$primary-button-color;
+    &:hover {
+      color: a.$hover-button-color;
+    }
+
   
 }
   
@@ -51,6 +57,11 @@
     line-height: 1.1;
 
 }
+
+
+/*This is the specific styling for the grid styling of the different featured projects. projectSectionRight 
+  displays the image on the left and the content on the right while projectSectionLeft reverses it */
+
 @mixin projectSectionRight(){
     display: grid;
     justify-self: center;
@@ -64,6 +75,7 @@
         grid-row: 1;
         margin: 0;
         align-self: flex-end;
+        color: a.$text-color-highlight
     }
     
     .project-image{
@@ -87,7 +99,7 @@
     }
       
     .project-tech-flex{
-        @include flexDisplay(flex-end, end);
+        @include flexDisplay(center, center);
         grid-column: 8/13;
         grid-row: 4/5;
   
@@ -97,13 +109,12 @@
     }
   
     .project-links{
-        @include flexDisplay(flex-end, end);
+        @include flexDisplay(flex-start, start);
         grid-column: 12/13;
         grid-row:5/6;
         
         .fab, .fas{
-            margin: 0 20px;
-            font-size: x-large;
+            @include socialMedia()
         }
     }
 
@@ -118,10 +129,11 @@
     max-width:1200px;
 
     p{
-        grid-column: 1/2;
+        grid-column: 1/3;
         grid-row: 1;
         margin: 0;
         align-self: flex-end;
+        color: a.$text-color-highlight;
     }
     
     .project-image{
@@ -145,7 +157,7 @@
     }
       
     .project-tech-flex{
-        @include flexDisplay(flex-end, end);
+        @include flexDisplay(center, center);
         grid-column: 1/6;
         grid-row: 4/5;
   
@@ -155,13 +167,12 @@
     }
   
     .project-links{
-        @include flexDisplay(flex-end, end);
+        @include flexDisplay(flex-start, start);
         grid-column: 1/2;
         grid-row:5/6;
         
         .fab, .fas{
-            margin: 0 20px;
-            font-size: x-large;
+            @include socialMedia();
         }
     }
 }
@@ -169,7 +180,7 @@
 
 @mixin projectBox(){
     align-self: center;
-    background-color: #2E282A ;
+    background-color: a.$background-project-box ;
     padding: 5% 2%;
 
 }
@@ -187,6 +198,6 @@
 
 @mixin flexDisplay($flex-justify, $webkit-justify) {
     display: flex;
-    justify-content: $flex-justify;
+    align-self: $flex-justify;
     -webkit-box-pack: $webkit-justify;
 }
