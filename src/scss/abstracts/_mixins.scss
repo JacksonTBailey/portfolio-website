@@ -58,6 +58,29 @@
 
 }
 
+@mixin listNoBullet(){
+    display: inline-flex;
+    align-content: center;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    text-decoration: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin flexDisplay($flex-justify, $webkit-justify) {
+    display: flex;
+    align-self: $flex-justify;
+    -webkit-box-pack: $webkit-justify;
+}
+
+@mixin projectBox(){
+    align-self: center;
+    background-color: a.$background-project-box ;
+    padding: 5% 2%;
+
+}
 
 /*This is the specific styling for the grid styling of the different featured projects. projectSectionRight 
   displays the image on the left and the content on the right while projectSectionLeft reverses it */
@@ -177,27 +200,10 @@
     }
 }
 
-
-@mixin projectBox(){
-    align-self: center;
-    background-color: a.$background-project-box ;
-    padding: 5% 2%;
-
-}
-
-@mixin listNoBullet(){
-    display: inline-flex;
-    align-content: center;
-    column-gap: 20px;
-    flex-wrap: wrap;
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-@mixin flexDisplay($flex-justify, $webkit-justify) {
-    display: flex;
-    align-self: $flex-justify;
-    -webkit-box-pack: $webkit-justify;
+@mixin slider {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    margin: 0 auto;
+    overflow: hidden;
 }

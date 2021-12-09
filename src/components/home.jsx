@@ -4,6 +4,7 @@ import Footer from './footer'
 import Projects from './projects';
 import Timer from './timer';
 import Testimonials from './testimonials';
+import Slider from './slider';
 
 //influenced by https://brittanychiang.com/ , https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
 

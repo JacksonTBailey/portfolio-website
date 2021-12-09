@@ -71,12 +71,13 @@ h2{
 
 .project-section{
   max-width: 1600px;
+  margin-bottom: 10vh;;
 }
 
 .featured-projects{
   display: grid;
   max-width: 100vw;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 10rem;
 
   .project-description{
@@ -99,8 +100,41 @@ h2{
 }
 
 
+//testimonials section
+.testimonials{
+  display: grid;
+  grid-template-columns: 20vw 60vw 20vw;
 
-  //Footer displayed on every page
+  @include slider;
+
+  h2{
+    grid-row: 1;
+  }
+
+  p{
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .testimonials-block{
+    grid-column: 2;
+    grid-row:3;
+  }
+
+  .fa-chevron-left{
+    grid-column: 1;
+    grid-row:3;
+  }
+  .fa-chevron-right{
+    grid-column: 3;
+    grid-row:3;
+
+  }
+}
+
+
+
+//Footer displayed on every page
   .regular-footer{
     display: flex;
     flex-direction: column;

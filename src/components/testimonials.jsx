@@ -24,7 +24,11 @@ export default function Testimonials() {
         <div className="testimonials">
             <h2>Testimonials</h2>
             <p>I've worked with some great people! Here's what they've said about my work.</p>
-            {mappedTestimonial}
+            <i class="fas fa-chevron-left"></i>
+            <i class="fas fa-chevron-right"></i>
+            <div class="testimonials-block">
+                {mappedTestimonial}
+            </div>
         </div>
     )
 }
