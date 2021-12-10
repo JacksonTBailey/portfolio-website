@@ -11,12 +11,12 @@ export default function Testimonials() {
 
     const mappedTestimonial = testimonial.map((testimonial)=>{
         return (
-            <div className="testimonial">
+        <li className="testimonial">
             <img className="testimonial-image" src={testimonial.img} alt={testimonial.alt}/>
             <p className="testimonial-text">{testimonial.text}</p>
             <p className="testimonial-client">{testimonial.client}</p>
             <p className="testimonial-company">{testimonial.company}</p>
-        </div>
+        </li>
         )
     })
     
@@ -27,7 +27,7 @@ export default function Testimonials() {
             <i class="fas fa-chevron-left"></i>
             <i class="fas fa-chevron-right"></i>
             <div class="testimonials-block">
-                {mappedTestimonial}
+                <ol>{mappedTestimonial}</ol>
             </div>
         </div>
     )
