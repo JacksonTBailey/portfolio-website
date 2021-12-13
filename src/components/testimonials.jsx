@@ -1,4 +1,5 @@
 import React from 'react'
+import Slider from './slider'
 
 export default function Testimonials() {
     
@@ -11,7 +12,7 @@ export default function Testimonials() {
 
     const mappedTestimonial = testimonial.map((testimonial)=>{
         return (
-        <li className="testimonial">
+        <li className="testimonial" key={testimonial.key}>
             <img className="testimonial-image" src={testimonial.img} alt={testimonial.alt}/>
             <p className="testimonial-text">{testimonial.text}</p>
             <p className="testimonial-client">{testimonial.client}</p>
@@ -19,6 +20,11 @@ export default function Testimonials() {
         </li>
         )
     })
+    
+    //Left off trying to create a function that will help the slider work on the testimonials.
+    function testimonialSlider(){
+        
+    }
     
     return (
         <div className="testimonials">
@@ -28,6 +34,7 @@ export default function Testimonials() {
             <i class="fas fa-chevron-right"></i>
             <div class="testimonials-block">
                 <ol>{mappedTestimonial}</ol>
+                <Slider sliderItems={testimonial} startingSliderItemIndex={0} changeFunction={testimonial-1}></Slider>
             </div>
         </div>
     )
