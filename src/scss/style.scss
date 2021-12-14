@@ -116,11 +116,6 @@ h2{
     grid-row: 2;
   }
   
-  ol{
-    padding: 0;
-    margin: 0;
-    display: grid;
-  }
 
   .testimonials-block{
     grid-column: 2;
@@ -136,6 +131,9 @@ h2{
   .fa-chevron-left{
     grid-column: 1;
     grid-row:3;
+    top:50%;
+    right:32px;
+    font-size: 3rem;
   }
   .fa-chevron-right{
     grid-column: 3;
