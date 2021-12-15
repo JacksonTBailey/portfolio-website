@@ -102,43 +102,77 @@ h2{
 
 //testimonials section
 .testimonials{
-  display: grid;
-  grid-template-columns: 20vw 60vw 20vw;
-
-  @include slider;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
   h2{
-    grid-row: 1;
+    
   }
 
   p{
-    grid-column: 2;
-    grid-row: 2;
+    
   }
   
 
-  .testimonials-block{
-    grid-column: 2;
-    grid-row:3;
-    
-    .testimonial{
-      list-style: none;
-      grid-row: 1;
-      grid-column: 1;
-    }
-  }
+  .testimonial{
+    list-style: none;
+    opacity: 0;
+    transition-duration: 1s ease;
+    max-width: 1000px;
 
+    p{
+      margin: 0 0 0 30px;
+    }
+
+    .testimonial-text{
+      grid-column: 2;
+      grid-row: 1/2;
+
+    }
+    .testimonial-client{
+      grid-column: 2;
+      grid-row: 2/3;
+    }
+    .testimonial-company{
+      grid-column: 2;
+      grid-row: 3/4;
+    }
+    
+    img{
+      border-radius: 10%;
+      max-width: 150px;
+      grid-row: 1/4;
+    }
+    
+  }
+  .active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1);
+    
+    display: grid;
+    justify-content: center;
+    align-self: center;
+  }
+  
   .fa-chevron-left{
-    grid-column: 1;
-    grid-row:3;
+    position: absolute;
     top:50%;
-    right:32px;
+    left:9%;
     font-size: 3rem;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
   }
   .fa-chevron-right{
-    grid-column: 3;
-    grid-row:3;
-
+    position: absolute;
+    top:50%;
+    right:9%;
+    font-size: 3rem;
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;
   }
 }
 
