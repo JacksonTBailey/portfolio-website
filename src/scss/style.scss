@@ -89,13 +89,13 @@ h2{
   }
 
   .project-1{
-    @include projectSectionRight();
+    @include projectSection();
   }
   .project-2{
-    @include projectSectionRight();
+    @include projectSection();
   }
   .project-3{
-    @include projectSectionRight();
+    @include projectSection();
   }
 }
 
