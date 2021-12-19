@@ -46,7 +46,7 @@ main{
   }
   .hero-h3{
     @include mediumFontSize;
-    color: $text-color-highlight;
+    color: $hover-button-color;
     margin-bottom: 25px;
     margin-top: 0;
   }
@@ -56,7 +56,7 @@ main{
   }
 
   .top-skills{
-    color: $text-color-highlight;
+    color: $hover-button-color;
   }
 }
 
@@ -78,7 +78,7 @@ h2{
   display: grid;
   max-width: 100vw;
   grid-template-rows: repeat(3, 1fr);
-  gap: 10rem;
+  grid-gap:4rem;
 
   .project-description{
     @include projectBox();
@@ -197,7 +197,7 @@ h2{
       .quote-author{
         grid-row: 2;
         @include quote;
-        color: $text-color-highlight
+        color: $hover-button-color
       }
     }
 

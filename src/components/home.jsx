@@ -3,7 +3,6 @@ import { Navbar } from './navbar'
 import Footer from './footer'
 import Projects from './projects';
 import Timer from './timer';
-import Testimonials from './testimonials';
 
 //influenced by https://brittanychiang.com/ , https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
 

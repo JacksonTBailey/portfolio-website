@@ -20,7 +20,7 @@ export default function Projects() {
             title: "Weather Wherever",
             number:2,
             description: `Get the weather for any city throughout the world through my weather API website. Don't want to view it in Fahrenheit? No problem! View it in Celcius too!`,
-            technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API", "OpenWeatherMap API", "Teleport API"],
+            technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API", "Teleport API","OpenWeatherMap API"],
             links: [
                 {name: "GitHub", url: "https://github.com/JacksonTBailey/WeatherApi", class: "fab fa-github"},
                 {name: "External Link", url: "https://weather-wherever.netlify.app/", class: "fas fa-external-link-alt"}
@@ -55,11 +55,14 @@ export default function Projects() {
             <div className="project-links">{project.links.map(link =>{
                 return(<a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
             </div>
-            <div className="project-image">
-                <a href={project.links[1].url} target="_blank" rel="noreferrer">
-                    <img src={project.image[0].src} alt={project.image.alt} />
-                </a>
-            </div>
+            <a className="project-image-url" href={project.links[1].url} target="_blank" rel="noreferrer">
+                <figure className="project-image"
+                    style={{
+                        backgroundImage: `url(${project.image[0].src})`,
+                        alt: project.image.alt
+                    }}>
+                </figure>
+            </a>
         </div>)})
 
     return (
