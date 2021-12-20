@@ -89,13 +89,18 @@ h2{
   }
 
   .project-1{
-    @include projectSection();
+    @include projectSection("../../images", "text_adventure_game", "png");
+
   }
+
   .project-2{
-    @include projectSection();
+    @include projectSection("../../images", "weather_api", "png");
+
   }
+
   .project-3{
-    @include projectSection();
+    @include projectSection("../../images", "simon_game", "png");
+
   }
 }
 
