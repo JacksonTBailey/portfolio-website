@@ -89,17 +89,17 @@ h2{
   }
 
   .project-1{
-    @include projectSection("../../images", "text_adventure_game", "png");
+    @include projectSection("../../images", "text_adventure_game", "png", rotateX);
 
   }
 
   .project-2{
-    @include projectSection("../../images", "weather_api", "png");
+    @include projectSection("../../images", "weather_api", "png", rotateY);
 
   }
 
   .project-3{
-    @include projectSection("../../images", "simon_game", "png");
+    @include projectSection("../../images", "simon_game", "png", rotateX);
 
   }
 }
@@ -212,21 +212,21 @@ h2{
       column-gap: 2vw;
       
       .footer-social{
-        @include socialMedia();
+        @include socialMedia($primary-button-color, $hover-button-color);
       }
 
       .github{
         grid-column: 2;
-        @include socialMedia();
+        @include socialMedia($primary-button-color, $hover-button-color);
 
       }
       .linkedin{
         grid-column: 3;
-        @include socialMedia();
+        @include socialMedia($primary-button-color, $hover-button-color);
       }
       .email{
         grid-column: 4;
-        @include socialMedia();
+        @include socialMedia($primary-button-color, $hover-button-color);
       }
     }
     p{
