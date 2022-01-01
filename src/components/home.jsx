@@ -3,8 +3,10 @@ import { Navbar } from './navbar'
 import Footer from './footer'
 import Projects from './projects';
 import Timer from './timer';
+import { BrowserRouter as Routes, Route, NavLink } from 'react-router-dom';
 
-//influenced by https://brittanychiang.com/ , https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
+
+//influenced by https:/~/brittanychiang.com/ , https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
 
 export default function Home() {
     const topSkills = ["HTML", "CSS", "SCSS", "JavaScript", "React", "Bootstrap", "Node.js", "REST"];
@@ -12,6 +14,12 @@ export default function Home() {
     return (
         <React.Fragment>
             <Navbar/>
+
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/contact" element={<Contact />}/>
+                <Route path="/about" element={<About />}/>                
+            </Routes>
             <main className="fillHeight">
                 <div className="home-header styled-hero">
                     <h1 className="hero-h1">Hi there! I'm</h1>
