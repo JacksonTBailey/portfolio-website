@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './scss/style.scss'
 import Home from './components/home';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router} from "react-router-dom"
+import About from './components/about';
+import Contact from './components/contact';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+
 
 ReactDOM.render(
   <Router>
-    <Home />
+    <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/contact" element={<Contact />}/>
+        <Route path="/about" element={<About />}/>                
+    </Routes>
   </Router>,
   document.getElementById('root')
 );

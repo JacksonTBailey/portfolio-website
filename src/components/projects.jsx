@@ -46,14 +46,14 @@ export default function Projects() {
 
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
-        <div className={`project-${project.number}`}>
-            <h3 key={project.title} className="project-title">{project.title}</h3>
+        <div className={`project-${project.number}`} key={project.title}>
+            <h3 className="project-title">{project.title}</h3>
             <div className="project-description">{project.description}</div>
                 <ul className="project-tech-used">{project.technologies.map(technology => {
                     return(<li key={technology}>{technology}</li>)})}
                 </ul>
             <div className="project-links">{project.links.map(link =>{
-                return(<a href={link.url} target="_blank" rel="noreferrer"><i className={link.class} key={link.class}></i></a>)})}
+                return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
             </div>
             <div className='flip-box'>
                 <a className="project-image-url" href={project.links[1].url} target="_blank" rel="noreferrer">
