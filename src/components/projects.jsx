@@ -41,6 +41,19 @@ export default function Projects() {
             image: [
                 {src: "images/simon_game.png", alt: "Simon Game"},
             ]
+        },
+        {
+            title: "Recipes R' Us",
+            number:4,
+            description: `A cooking recipe website that runs off of an API created by Crescendo Collective. Besides this portfolio website, this was the second project I ever created using React.`,
+            technologies: ["HTML", "CSS", "SCSS", "Styled Components", "JavaScript", "React", "React Router", "GitHub"],
+            links: [
+                {name: "GitHub", url: "https://github.com/JacksonTBailey/recipes-r-us", class: "fab fa-github"},
+                {name: "External Link", url: "https://recipes-r-us.netlify.app/recipes", class: "fas fa-external-link-alt"}
+                ],
+            image: [
+                {src: "images/recipes_r_us.png", alt: "Simon Game"},
+            ]
         }
     ]
 

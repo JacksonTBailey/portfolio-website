@@ -99,7 +99,11 @@ h2{
   }
 
   .project-3{
-    @include projectSection("../../images", "simon_game", "png", rotateX);
+    @include projectSection("../../images", "simon_game", "png", rotateY);
+
+  }
+  .project-4{
+    @include projectSection("../../images", "recipes_r_us", "png", rotateX);
 
   }
 }
