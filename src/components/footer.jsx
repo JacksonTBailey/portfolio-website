@@ -5,7 +5,7 @@ import Timer from './timer';
 export default function Footer() {
 
     const featuredQuote = [
-        {author: "Vincent van Gogh", text: "Normality is a paved road: It’s comfortable to walk, but no flowers grow on it."},
+        {author: "Vincent van Gogh", text: "Normality is a paved road: It's comfortable to walk, but no flowers grow on it."},
         {author: "Leonardo da Vinci", text: "Learning never exhausts the mind."},
         {author: "Katsumoto — The Last Samurai", text: "The perfect blossom is a rare thing. You could spend your life looking for one, and it would not be a wasted life."},
         {author: "Obi-Wan Kenobi", text: "Hello there."},
