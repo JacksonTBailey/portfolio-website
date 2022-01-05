@@ -1,7 +1,6 @@
 import React from 'react'
 import Timer from './timer';
 
-
 export default function Footer() {
 
     const featuredQuote = [
@@ -23,12 +22,11 @@ export default function Footer() {
         </a>
     </div>})
 
-
     return (
         <footer className="regular-footer">
             <div className="footer-quote">
-                <p className="quote-text"><Timer items={featuredQuote} startingItemIndex={0} timer={10000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="text"/></p>
-                <p className="quote-author"><Timer items={featuredQuote} startingItemIndex={0} timer={10000} changeFunction={()=>Math.floor(Math.random()*featuredQuote.length)} part="author"/></p>
+                <p className="quote-text"><Timer items={featuredQuote} startingItemIndex={0} timer={8000} changeFunction={prevQuote => prevQuote+1} part="text"/></p>
+                <p className="quote-author"><Timer items={featuredQuote} startingItemIndex={0} timer={8000} changeFunction={prevQuote => prevQuote+1} part="author"/></p>
             </div>
             <div className="social-icons">
                 {mappedSocials}

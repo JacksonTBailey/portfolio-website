@@ -17,8 +17,21 @@ export default function Projects() {
             ]
         },
         {
-            title: "Weather Wherever",
+            title: "Recipes R' Us",
             number:2,
+            description: `A cooking recipe website that runs off of an API created by Crescendo Collective. Besides this portfolio website, this was the second project I ever created using React.`,
+            technologies: ["HTML", "CSS", "SCSS", "Styled Components", "JavaScript", "React", "React Router", "GitHub"],
+            links: [
+                {name: "GitHub", url: "https://github.com/JacksonTBailey/recipes-r-us", class: "fab fa-github"},
+                {name: "External Link", url: "https://recipes-r-us.netlify.app/recipes", class: "fas fa-external-link-alt"}
+                ],
+            image: [
+                {src: "images/recipes_r_us.png", alt: "Recipes R' Us"},
+            ]
+        },
+        {
+            title: "Weather Wherever",
+            number:3,
             description: `Get the weather for any city throughout the world through my weather API website. Don't want to view it in Fahrenheit? No problem! View it in Celcius too!`,
             technologies: ["HTML", "CSS", "Styled Components","JavaScript", "REST API","OpenWeatherMap API"],
             links: [
@@ -31,7 +44,7 @@ export default function Projects() {
         },
         {
             title: "Simon",
-            number:3,
+            number:4,
             description: `A remake of the classic game of simon. This was one of my first projects using JavaScript that I worked on, and still enjoy it to this day!`,
             technologies: ["HTML", "CSS", "JavaScript", "Atom", "Git", "GitHub"],
             links: [
@@ -40,19 +53,6 @@ export default function Projects() {
                 ],
             image: [
                 {src: "images/simon_game.png", alt: "Simon Game"},
-            ]
-        },
-        {
-            title: "Recipes R' Us",
-            number:4,
-            description: `A cooking recipe website that runs off of an API created by Crescendo Collective. Besides this portfolio website, this was the second project I ever created using React.`,
-            technologies: ["HTML", "CSS", "SCSS", "Styled Components", "JavaScript", "React", "React Router", "GitHub"],
-            links: [
-                {name: "GitHub", url: "https://github.com/JacksonTBailey/recipes-r-us", class: "fab fa-github"},
-                {name: "External Link", url: "https://recipes-r-us.netlify.app/recipes", class: "fas fa-external-link-alt"}
-                ],
-            image: [
-                {src: "images/recipes_r_us.png", alt: "Simon Game"},
             ]
         }
     ]

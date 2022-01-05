@@ -92,18 +92,19 @@ h2{
     @include projectSection("../../images", "text_adventure_game", "png", rotateX);
 
   }
-
+  
   .project-2{
-    @include projectSection("../../images", "weather_api", "png", rotateY);
+    @include projectSection("../../images", "recipes_r_us", "png", rotateY);
 
   }
 
   .project-3{
-    @include projectSection("../../images", "simon_game", "png", rotateY);
+    @include projectSection("../../images", "weather_api", "png", rotateY);
 
   }
+
   .project-4{
-    @include projectSection("../../images", "recipes_r_us", "png", rotateX);
+    @include projectSection("../../images", "simon_game", "png", rotateX);
 
   }
 }
