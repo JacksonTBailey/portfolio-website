@@ -17,15 +17,15 @@ export function Navbar() {
         }
 
     return (
-        <header className="primary-header flex">
+        <header className="primary-header">
             
-        <img src="./images/jb-logo-3.svg" alt="Logo" className="logo" />
         
         <button className="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false" onClick={hamburgerToggle}>
             <span className="sr-only">Menu</span>
         </button>
         
         <nav>
+            <img src="./images/jb-logo-3.svg" alt="Logo" className="logo" />
             <ul id= "primary-navigation" className="primary-navigation flex" data-visible="false">
                 <li className="active">
                     <NavLink to='/' className='navbar-link' onClick={hamburgerToggle}>Home</NavLink>

@@ -1,17 +1,19 @@
 //This is where I'll keep all of the scss for my navbar
-@use '../abstracts' as a;
+@use '../abstracts' as *;
 
 /*primary header */
 .primary-header{
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100vw;
+    position: sticky;
+    position:-webkit-sticky;
+    top:0;
+    width: 100%;
+    height: 10%;
     z-index: 100;
     
     .logo{
-        margin: 2rem;
-        max-block-size: 75px;
+        max-block-size: 50px;
+        justify-self: center;
+        align-self: center;
     }
 
     .mobile-nav-toggle{
@@ -22,22 +24,26 @@
         list-style: none;
         padding: 0;
         margin: 0;
-        background: hsl(0 0% 100% / .75);
-
         
-        a{
+        .navbar-link{
+            font-size: x-large;
             text-decoration: none;
-            color: a.$text-color;
+            color: $text-color;
+
+            &:hover{
+                color: $hover-button-color;
+                transition: .3s;
+            }
         }
-        a > [aria-hidden = "true"]{
+         > [aria-hidden = "true"]{
             font-weight: 700;
+            font-size: 45px;
             margin-inline-end: .5em;
         }
         
     }
     @supports (backdrop-filter: blur(1rem)){
-        .primary-navigation{
-            background: hsl(0 0% 100% / .1);
+        nav{
             backdrop-filter: blur(.5rem);    
         }
     }
@@ -47,13 +53,16 @@
 
             position: fixed;
             z-index: 1000;
-            inset: 0 0 0 30vw;
+            inset: 0 0 0 0vw;
 
             flex-direction: column;
             padding: min(30vh,10rem) 2em;
 
             transform: translateX(100%);
             transition: transform 350ms ease-in-out;
+            justify-content: center;
+            align-items: center;
+            background-color: $background-project-box;        
         }
         
         .primary-navigation[data-visible="true"]{
@@ -76,15 +85,18 @@
         .mobile-nav-toggle[aria-expanded="true"]{
             background-image: url("../../images/icon-close.svg");
         }
-    }
-
-    @media (min-width:35em) and (max-width:55em){
-        .primary-navigation a> [aria-hidden]{
-            display: none;
+        .navbar-link[data-visible="true"]{
+            transform: translateX(0%);
         }
     }
 
     @media (min-width: 35em) {
+        nav{
+            display: grid;
+            grid-template-columns: 10% 90%;
+            background: hsl(198, 67, 12, .75);
+        }
+
         .primary-navigation{
             --gap: clamp(1.5rem, 5vw, 3rem);
             padding-block: 2rem;
@@ -96,4 +108,18 @@
 .flex{
     display: flex;
     gap: var(--gap, 1rem);
+    justify-content: flex-end;
 }
+
+@media (max-width:35em) {
+    .primary-header{
+        .primary-navigation{
+            .navbar-link{
+                color: $text-color;
+                font-size: 40px;
+                font-weight: bold;
+            }
+        }
+    }        
+}
+

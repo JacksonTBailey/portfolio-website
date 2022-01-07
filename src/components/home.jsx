@@ -5,7 +5,7 @@ import Projects from './projects';
 import Timer from './timer';
 
 
-//influenced by https:/~/brittanychiang.com/ , https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
+//influenced by https://brittanychiang.com/ , https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
 
 export default function Home() {
     const topSkills = ["HTML", "CSS", "SCSS", "JavaScript", "React", "Bootstrap", "Node.js", "REST"];
