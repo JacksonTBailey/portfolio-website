@@ -94,7 +94,8 @@
         nav{
             display: grid;
             grid-template-columns: 10% 90%;
-            background: hsl(198, 67, 12, .75);
+            background: $navbar-hsl;
+            box-shadow: 0 10px 30px -10px $background-page-hsl;
         }
 
         .primary-navigation{
