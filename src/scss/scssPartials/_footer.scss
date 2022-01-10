@@ -28,21 +28,21 @@
       column-gap: 2vw;
       
       .footer-social{
-        @include socialMedia($primary-button-color, $hover-button-color);
+        @include socialMedia($text-color, $hover-button-color);
       }
 
       .github{
         grid-column: 2;
-        @include socialMedia($primary-button-color, $hover-button-color);
+        @include socialMedia($text-color, $hover-button-color);
 
       }
       .linkedin{
         grid-column: 3;
-        @include socialMedia($primary-button-color, $hover-button-color);
+        @include socialMedia($text-color, $hover-button-color);
       }
       .email{
         grid-column: 4;
-        @include socialMedia($primary-button-color, $hover-button-color);
+        @include socialMedia($text-color, $hover-button-color);
       }
     }
     p{
