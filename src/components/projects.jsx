@@ -61,10 +61,10 @@ export default function Projects() {
         return( 
         <div className={`project-${project.number}`} key={project.title}>
             <h3 className="project-title">{project.title}</h3>
-            <div className="project-description">{project.description}</div>
-                <ul className="project-tech-used">{project.technologies.map(technology => {
-                    return(<li key={technology}>{technology}</li>)})}
-                </ul>
+            <p className="project-description">{project.description}</p>
+            <ul className="project-tech-used">{project.technologies.map(technology => {
+                return(<li key={technology}>{technology}</li>)})}
+            </ul>
             <div className="project-links">{project.links.map(link =>{
                 return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
             </div>
@@ -78,7 +78,7 @@ export default function Projects() {
 
     return (
         <div className="project-section">
-            <h2> 01. Some of My Creations</h2>
+            <h2> Some of My Creations</h2>
             <div className="featured-projects">
                 {mappedProjects}
             </div>

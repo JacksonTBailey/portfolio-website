@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+.home-header{
+    @include gridChild(1, 2, 2, 3);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+  
+    .hero-h1{
+      @include paragraph;
+    }
+  
+    .hero-h2{
+      @include largestFontSize;
+      margin-bottom: 5px;
+      margin-top: 0;
+    }
+    .hero-h3{
+      @include mediumFontSize;
+      color: $hover-button-color;
+      margin-bottom: 25px;
+      margin-top: 0;
+    }
+    .hero-p{
+      @include paragraph;
+      max-width: 600px;
+    }
+  
+    .top-skills{
+      color: $hover-button-color;
+    }
+  }
+  
+  .styled-hero{
+    max-width: 1000px;
+  }
+  

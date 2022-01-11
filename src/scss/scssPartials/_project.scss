@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+.project-section{
+  @include gridChild(2, 3, 2, 3);
+    margin-bottom: 10vh;
+}
+
+h2{
+    margin-bottom: 5rem;
+  }
+  
+  
+.featured-projects{
+display: grid;
+max-width: 100vw;
+grid-template-rows: repeat(3, 1fr);
+grid-gap:4rem;
+
+    .project-description{
+        @include projectBox();
+    }
+
+    .featured-projects{
+        display: grid;
+    }
+
+    .project-1{
+        @include projectSection("../../images", "text_adventure_game", "png", rotateX);
+
+    }
+
+    .project-2{
+        @include projectSection("../../images", "recipes_r_us", "png", rotateY);
+
+    }
+
+    .project-3{
+        @include projectSection("../../images", "weather_api", "png", rotateY);
+
+    }
+
+    .project-4{
+        @include projectSection("../../images", "simon_game", "png", rotateX);
+
+    }
+}
