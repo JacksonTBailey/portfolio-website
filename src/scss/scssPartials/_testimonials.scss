@@ -1,0 +1,68 @@
+@use '../abstracts' as *;
+
+.testimonials{
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+  
+    .testimonial{
+      list-style: none;
+      opacity: 0;
+      transition-duration: 1s ease;
+      max-width: 1000px;
+  
+      p{
+        margin: 0 0 0 30px;
+      }
+  
+      .testimonial-text{
+        grid-column: 2;
+        grid-row: 1/2;
+  
+      }
+      .testimonial-client{
+        grid-column: 2;
+        grid-row: 2/3;
+      }
+      .testimonial-company{
+        grid-column: 2;
+        grid-row: 3/4;
+      }
+      
+      img{
+        border-radius: 10%;
+        max-width: 150px;
+        grid-row: 1/4;
+      }
+      
+    }
+    .active {
+      opacity: 1;
+      transition-duration: 1s;
+      transform: scale(1);
+      
+      display: grid;
+      justify-content: center;
+      align-self: center;
+    }
+    
+    .fa-chevron-left{
+      position: absolute;
+      top:50%;
+      left:9%;
+      font-size: 3rem;
+      z-index: 10;
+      cursor: pointer;
+      user-select: none;
+    }
+    .fa-chevron-right{
+      position: absolute;
+      top:50%;
+      right:9%;
+      font-size: 3rem;
+      z-index: 10;
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+  
