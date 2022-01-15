@@ -118,6 +118,29 @@
 
 }
 
+@mixin headerTemplate(){
+    font-family: f.$main-font;
+    line-height: 1.1; 
+}
+@mixin header1(){
+    font-weight: 600;
+    font-size: clamp(50px, 8vw, 80px);
+    @include headerTemplate()
+}
+
+@mixin header2(){
+    font-weight: 600;
+    font-size: clamp(30px, 8vw, 50px);
+    @include headerTemplate()
+}
+
+@mixin header3(){
+    font-weight: 600;
+    font-size: clamp(20px, 8vw, 35px);
+    @include headerTemplate()
+}
+
+
 @mixin listNoBullet(){
     display: inline-flex;
     align-content: center;
@@ -156,6 +179,7 @@
     //Image section of the project card
     .flip-box {
         background-color: transparent;
+        align-self: center;
         width: 600px;
         height: 400px;
         perspective: 1000px;
