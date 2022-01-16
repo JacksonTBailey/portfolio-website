@@ -45,10 +45,10 @@
   
 }
 
-@mixin gridParent($gridType: grid, $gridColumns: 1, $gridColumnSize: 1fr, $gridRows: 1, $gridRowSize: auto) {
+@mixin gridParent($gridType: grid, $gridColumns: repeat(1, 1fr), $gridRows: auto) {
     display: $gridType;
-    grid-template-columns: repeat($gridColumns, $gridColumnSize);
-    grid-template-rows: repeat($gridRows, $gridRowSize);
+    grid-template-columns: $gridColumns;
+    grid-template-rows: $gridRows;
     @content;
 }
 
@@ -67,25 +67,15 @@
     margin-bottom: 20px;
 }
 
-@mixin paragraph {
-    font-family: f.$secondary-font;
-    font-size: clamp(16px, 5vw, 20px);
-    font-weight: 300;
-    line-height: 1.5;
-    word-spacing: 2px;  
-    margin: 0 0 10px 5px;
-
-}
-
-@mixin unordered-list() {
-    display: grid;
+@mixin unordered-list($display: grid, $alignContent: center, $justifySelf: center, $textAlign: center, $textDecoration: auto, $listStyle: circle, $whiteSpace: inherit) {
+    display: $display;
     padding: 0;
-    align-content: center;
-    justify-self: center;
-    text-align: center;
-    text-decoration: none;
-    list-style: none;
-    white-space: nowrap;
+    align-content: $alignContent;
+    justify-self: $justifySelf;
+    text-align: $textAlign;
+    text-decoration: $textDecoration;
+    list-style: $listStyle;
+    white-space: $whiteSpace;
     @content;
 }
 
@@ -102,22 +92,19 @@
     @content;
 }
 
-@mixin coloredParagraph(){
+@mixin paragraph($smallestSize: 16px, $preferredSize: 5vw, $largestSize: 20px, $fontWeight: 300, $lineHeight: 1.5, $wordSpacing: 2px, $margin: 0,) {
+    font-family: f.$secondary-font;
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    word-spacing: $wordSpacing;  
+    margin: $margin;
+
+}
+
+@mixin coloredParagraph($color: a.$hover-button-color){
     @include paragraph();
-    color: a.$hover-button-color;
-}
-
-@mixin largestFontSize(){
-    font-weight: 600;
-    font-size: clamp(50px, 8vw, 80px);
-    line-height: 1.1;
-}
-
-@mixin mediumFontSize(){
-    font-weight: 600;
-    font-size: clamp(30px, 4vw, 40px);
-    line-height: 1.1;
-
+    color: $color;
 }
 
 @mixin headerTemplate($lineHeight: 1.1){
@@ -139,20 +126,10 @@
 
 @mixin header3($smallestSize: 20px, $preferredSize: 8vw, $largestSize: 35px, $fontWeight: 600){
     font-weight: $fontWeight;
-    font-size: ($smallestSize, $preferredSize, $largestSize);
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
     @include headerTemplate()
 }
 
-@mixin listNoBullet(){
-    display: inline-flex;
-    align-content: center;
-    column-gap: 20px;
-    flex-wrap: wrap;
-    text-decoration: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
 @mixin flexDisplay($display: flex, $direction: column, $align-self: initial, $align-content: initial, $align-items:initial, $justify-self: initial, $justify-content: initial, $justify-items: initial) {
     display: $display;
@@ -173,7 +150,7 @@
 }
 
 @mixin projectSection($directory,$image, $type, $position){
-    @include gridParent($gridColumns:12, $gridRows: 6);
+    @include gridParent($gridColumns: repeat(12, 1fr), $gridRows: 6);
     justify-self: center;
     justify-items: right ;
     max-width:1200px;
@@ -239,9 +216,9 @@
       
 
     .project-tech-used{
-        @include unordered-list(){
-            @include gridChild(3, 5,8, 13);
-            @include gridParent($gridColumns:3, $gridRows:auto, $gridRowSize:1fr);
+        @include unordered-list($textDecoration: none, $listStyle: none, $whiteSpace: nowrap){
+            @include gridChild(3, 5, 8, 13);
+            @include gridParent($gridColumns: repeat(3, 1fr), $gridRows:auto);
             gap:10px;
             li{
                 @include list(a.$primary-button-color)
@@ -252,6 +229,7 @@
     .project-links{
         @include flexDisplay($direction: row, $align-content:center);
         @include gridChild(5, 6, 12, 13);
+        margin-top: clamp(20px, 1vh, 2vh);
         
         .fab, .fas{
             @include socialMedia(a.$text-color, a.$hover-button-color)

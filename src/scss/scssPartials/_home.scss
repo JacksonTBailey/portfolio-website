@@ -7,23 +7,23 @@
     min-height: 65vh;
   
     .hero-h1{
-      @include paragraph;
+      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px, $margin: 0 0 10px 5px);
     }
   
     .hero-h2{
-      @include largestFontSize;
+      @include header1();
       margin-bottom: 5px;
       margin-top: 0;
     }
     .hero-h3{
-      @include mediumFontSize;
+      @include header2($preferredSize: 4vw, $largestSize: 45px,);
       color: $hover-button-color;
       margin-bottom: 25px;
       margin-top: 0;
     }
     .hero-p{
-      @include paragraph;
-      max-width: 600px;
+      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px, $margin: 0 0 10px 5px);
+      max-width: 650px;
     }
   
     .top-skills{

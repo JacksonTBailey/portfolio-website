@@ -1,31 +1,34 @@
 @use '../abstracts' as *;
 
   .regular-footer{
-    display: flex;
+    display: grid;
+    gap: 5vh;
     flex-direction: column;
     padding: 10vh 0vw;
     
     .footer-quote{
-      grid-row: 1;
-      display:grid;
-      grid-template-rows: minmax(min-content, auto) minmax(min-content, auto);
-      grid-template-columns: 30vw 40vw 30vw;
+      @include gridChild(1, 2, 1, 2);
+      @include gridParent($gridColumns: 30vw 40vw 30vw);
+      gap:20px;
 
       .quote-text{
-        grid-row: 1;
-        @include quote;
+        @include gridChild(1, 2, 2, 3);
+        @include paragraph($margin:0);
+        justify-self: center;
+
       }
       .quote-author{
-        grid-row: 2;
-        @include quote;
+        @include gridChild(2, 3, 2, 3);
+        @include paragraph($margin:0);
+        justify-self: center;
         color: $hover-button-color
       }
     }
 
     .social-icons{
-      display: grid;
-      grid-template-columns: 40vw 4vw 4vw 4vw 40vw;
-      column-gap: 2vw;
+      @include gridParent($gridColumns: 40vw 4vw 4vw 4vw 40vw);
+      column-gap: clamp(1vw, 1.5vw, 2vw);
+      justify-content: center;
       
       .footer-social{
         @include socialMedia($text-color, $hover-button-color);
@@ -46,6 +49,8 @@
       }
     }
     p{
-      align-self: center;
+      @include paragraph($margin:0);
+      grid-row:3;
+      justify-self: center;
     }
   }
