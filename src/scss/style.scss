@@ -1,8 +1,7 @@
 @use './abstracts' as *;
-@use './scssPartials/navbar' as n;
-@use './scssPartials/footer' as f;
-@use './scssPartials/project' as p;
-@use './scssPartials/home' as h;
+@use './scssPartials/' as p;
+@use './svgPartials/' as svg;
+
 
 h1, h2, h3{
   font-family: $main-font;

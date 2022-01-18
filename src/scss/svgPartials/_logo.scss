@@ -1,0 +1,41 @@
+@use '../abstracts/' as *;
+
+#jbLogo{
+    width: 50px;
+}
+
+#jbLogo-g1{
+    transform: matrix(4.084788 0 0 4.974584-457.746822-337.024184);
+}
+
+#jbLogo-text1{
+    font-family: $main-font;
+    font-size: 12.5;
+    font-weight: 500;
+    font-style: italic;
+    transform: matrix(4.419945, 0, 0, 4.730117, 118.078443, 114.043679);
+    fill: $hover-button-color;
+    stroke-width: 0;
+}
+
+#jbLogo-tspan1, #jbLogo-tspan2{
+    font-family: $main-font;
+    font-weight: 500;
+    stroke-width: 0;
+}
+#jbLogo-tspan2{
+    font-family: $secondary-font;
+    font-weight: 500;
+    stroke-width: 0;
+
+}
+
+#jbLogo-text2{
+    font-family: $main-font;
+    font-size: 12.5;
+    font-weight: 500;
+    font-style: italic;
+    transform: matrix(3.8132, 0, 0, 4.383344, 133.659656, 111.007297);
+    fill: $hover-button-color;
+    stroke-width: 0;
+}

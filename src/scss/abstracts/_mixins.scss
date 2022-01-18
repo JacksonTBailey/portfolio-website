@@ -1,48 +1,24 @@
 @use "./colors" as a;
 @use "./fonts" as f;
 
+//keyframes
 @keyframes regularImage {
     0%{background-blend-mode: overlay;}
     95%{background-blend-mode: overlay;}
     100%{background-blend-mode: unset;}
 }
 
-@mixin spinAnimation($transition, $transformType, $transform) {
-    transition: $transition;
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -ms-transition: $transition;
-    -o-transition: $transition;
-    -webkit-transform: #{$transformType}(#{$transform});
-    -moz-transform: #{$transformType}(#{$transform});
-    -o-transform: #{$transformType}(#{$transform});
-    -ms-transform: #{$transformType}(#{$transform});
-    transform: #{$transformType}(#{$transform});
-}
 
-@mixin navbarMixin {
-    display: flex;
-    transition: 0.3s;
-    color: a.$primary-button-color;
-    font-size: x-large;
-
-    &:hover{
-        color: a.$hover-button-color;
-    }
-}
-
-@mixin socialMedia($regularColor, $hoverColor){
-    font-size: 1.75rem;
-    grid-row: 1;
-    justify-self: center;
-    margin: 5px 15px;
-    cursor:pointer;
-    color: $regularColor;
-    &:hover {
-      color: $hoverColor;
-    }
-
-  
+//Flex and grid
+@mixin flexDisplay($display: flex, $direction: column, $align-self: initial, $align-content: initial, $align-items:initial, $justify-self: initial, $justify-content: initial, $justify-items: initial) {
+    display: $display;
+    flex-direction: $direction;
+    align-self: $align-self;
+    align-content: $align-content;
+    align-items: $align-items;
+    justify-self: $justify-self;
+    justify-content: $justify-content;
+    justify-items: $justify-items;
 }
 
 @mixin gridParent($gridType: grid, $gridColumns: repeat(1, 1fr), $gridRows: auto) {
@@ -59,12 +35,44 @@
     grid-column-end: $grid-column-end;
     @content;
 }
-  
-@mixin quote(){
-    grid-column: 2;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 20px;
+
+
+//Header, paragraph, and list templates
+@mixin headerTemplate($lineHeight: 1.1){
+    font-family: f.$main-font;
+    line-height: $lineHeight; 
+}
+
+@mixin header1($smallestSize: 50px, $preferredSize: 8vw, $largestSize: 80px, $fontWeight: 600){
+    font-weight: $fontWeight;
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
+    @include headerTemplate()
+}
+
+@mixin header2($smallestSize: 30px, $preferredSize: 8vw, $largestSize: 50px, $fontWeight: 600){
+    font-weight: $fontWeight;
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
+    @include headerTemplate()
+}
+
+@mixin header3($smallestSize: 20px, $preferredSize: 8vw, $largestSize: 35px, $fontWeight: 600){
+    font-weight: $fontWeight;
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
+    @include headerTemplate()
+}
+
+@mixin paragraph($smallestSize: 16px, $preferredSize: 5vw, $largestSize: 20px, $fontWeight: 300, $lineHeight: 1.5, $wordSpacing: 2px, $margin: 0,) {
+    font-family: f.$secondary-font;
+    font-size: clamp($smallestSize, $preferredSize, $largestSize);
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    word-spacing: $wordSpacing;  
+    margin: $margin;
+}
+
+@mixin coloredParagraph($color: a.$hover-button-color){
+    @include paragraph();
+    color: $color;
 }
 
 @mixin unordered-list($display: grid, $alignContent: center, $justifySelf: center, $textAlign: center, $textDecoration: auto, $listStyle: circle, $whiteSpace: inherit) {
@@ -92,56 +100,8 @@
     @content;
 }
 
-@mixin paragraph($smallestSize: 16px, $preferredSize: 5vw, $largestSize: 20px, $fontWeight: 300, $lineHeight: 1.5, $wordSpacing: 2px, $margin: 0,) {
-    font-family: f.$secondary-font;
-    font-size: clamp($smallestSize, $preferredSize, $largestSize);
-    font-weight: $fontWeight;
-    line-height: $lineHeight;
-    word-spacing: $wordSpacing;  
-    margin: $margin;
 
-}
-
-@mixin coloredParagraph($color: a.$hover-button-color){
-    @include paragraph();
-    color: $color;
-}
-
-@mixin headerTemplate($lineHeight: 1.1){
-    font-family: f.$main-font;
-    line-height: $lineHeight; 
-}
-
-@mixin header1($smallestSize: 50px, $preferredSize: 8vw, $largestSize: 80px, $fontWeight: 600){
-    font-weight: $fontWeight;
-    font-size: clamp($smallestSize, $preferredSize, $largestSize);
-    @include headerTemplate()
-}
-
-@mixin header2($smallestSize: 30px, $preferredSize: 8vw, $largestSize: 50px, $fontWeight: 600){
-    font-weight: $fontWeight;
-    font-size: clamp($smallestSize, $preferredSize, $largestSize);
-    @include headerTemplate()
-}
-
-@mixin header3($smallestSize: 20px, $preferredSize: 8vw, $largestSize: 35px, $fontWeight: 600){
-    font-weight: $fontWeight;
-    font-size: clamp($smallestSize, $preferredSize, $largestSize);
-    @include headerTemplate()
-}
-
-
-@mixin flexDisplay($display: flex, $direction: column, $align-self: initial, $align-content: initial, $align-items:initial, $justify-self: initial, $justify-content: initial, $justify-items: initial) {
-    display: $display;
-    flex-direction: $direction;
-    align-self: $align-self;
-    align-content: $align-content;
-    align-items: $align-items;
-    justify-self: $justify-self;
-    justify-content: $justify-content;
-    justify-items: $justify-items;
-}
-
+//Various Component Templates
 @mixin projectBox(){
     align-self: center;
     background-color: a.$background-project-box ;
@@ -243,4 +203,42 @@
     width: 100vw;
     margin: 0 auto;
     overflow: hidden;
+}
+
+@mixin spinAnimation($transition, $transformType, $transform) {
+    transition: $transition;
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -ms-transition: $transition;
+    -o-transition: $transition;
+    -webkit-transform: #{$transformType}(#{$transform});
+    -moz-transform: #{$transformType}(#{$transform});
+    -o-transform: #{$transformType}(#{$transform});
+    -ms-transform: #{$transformType}(#{$transform});
+    transform: #{$transformType}(#{$transform});
+}
+
+@mixin navbarMixin {
+    display: flex;
+    transition: 0.3s;
+    color: a.$primary-button-color;
+    font-size: x-large;
+
+    &:hover{
+        color: a.$hover-button-color;
+    }
+}
+
+@mixin socialMedia($regularColor, $hoverColor){
+    font-size: 1.75rem;
+    grid-row: 1;
+    justify-self: center;
+    margin: 5px 15px;
+    cursor:pointer;
+    color: $regularColor;
+    &:hover {
+      color: $hoverColor;
+    }
+
+  
 }

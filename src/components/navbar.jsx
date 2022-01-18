@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import Logo from '../iconComponents/Logo'
 
 export function Navbar() {
 
@@ -25,7 +26,9 @@ export function Navbar() {
         </button>
         
         <nav>
-            <img src="./images/jb-logo-3.svg" alt="Logo" className="logo" />
+            <NavLink to='/' className='navbar-logo'>
+                <Logo/>
+            </NavLink>
             <ul id= "primary-navigation" className="primary-navigation flex" data-visible="false">
                 <li className="active">
                     <NavLink to='/' className='navbar-link' onClick={hamburgerToggle}>Home</NavLink>
