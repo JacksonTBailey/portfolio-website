@@ -1,0 +1,25 @@
+@use '../abstracts/' as *;
+
+.tech{
+    @include gridChild(3, 4, 2, 3)
+}
+
+.technology-mapped-grid{
+    @include gridParent($autoFlow: column, $gridColumns:100%);
+    
+    .technology{
+        @include gridChild(1, 2, 1, 2);
+        @include flexDisplay($justify-self:end, $align-self:center)
+    }
+
+    svg{
+        stroke: $hover-button-color;
+        fill: $hover-button-color;
+        height: 5em;
+        width: 5em;
+        align-self: center;
+    }
+    .technology-p{
+        text-align: center;
+    }
+}

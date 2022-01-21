@@ -1,12 +1,21 @@
 @use "./colors" as a;
 @use "./fonts" as f;
 
+
 //keyframes
 @keyframes regularImage {
     0%{background-blend-mode: overlay;}
     95%{background-blend-mode: overlay;}
     100%{background-blend-mode: unset;}
 }
+
+@keyframes fadeInOut{
+    0% {opacity: 0;}
+    25% {opacity: 1;}
+    75% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
 
 
 //Flex and grid
@@ -21,10 +30,11 @@
     justify-items: $justify-items;
 }
 
-@mixin gridParent($gridType: grid, $gridColumns: repeat(1, 1fr), $gridRows: auto) {
+@mixin gridParent($gridType: grid, $gridColumns: repeat(1, 1fr), $gridRows: auto, $autoFlow: initial) {
     display: $gridType;
     grid-template-columns: $gridColumns;
     grid-template-rows: $gridRows;
+    grid-auto-flow: $autoFlow;
     @content;
 }
 
