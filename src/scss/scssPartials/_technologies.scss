@@ -9,7 +9,11 @@
     
     .technology{
         @include gridChild(1, 2, 1, 2);
-        @include flexDisplay($justify-self:end, $align-self:center)
+        @include flexDisplay($justify-self:end, $align-self:center);
+        animation-name: fadeInOut;
+        animation-timing-function: linear;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
     }
 
     svg{

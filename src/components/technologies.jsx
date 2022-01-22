@@ -27,9 +27,9 @@ export default function Technologies() {
         <p className='tech-p'>I've worked with a vast array of technologies in the web development world.</p>
         
         <div className='technology-mapped-grid'>
-          {technologies.map((tech) => {
+          {technologies.map((tech, i) => {
             return (
-              <div className='technology' key={tech.key} id={tech.id}>
+              <div className='technology' key={i} id={tech.id} style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>
                 {tech.src}
                 <p className='technology-p'>{tech.name}</p>
               </div>
