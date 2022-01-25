@@ -6,19 +6,19 @@ import {FaGitAlt, FaSass} from 'react-icons/fa'
 
 export default function Technologies() {
   const technologies = [
-    {name: "HTML", key: 1, id: "Html", src: <SiHtml5/>},
-    {name: "CSS", key: 2, id: "Css", src: <SiCss3/>},
-    {name: "JavaScript", key: 3, id: "Javascript", src: <SiJavascript/>},
-    {name: "Bootstrap", key: 4, id: "Bootstrap", src: <SiBootstrap/>},
-    {name: "SASS", key: 5, id: "Sass", src: <FaSass/>},
-    {name: "React", key: 6, id: "React", src: <SiReact/>},
-    {name: "Material UI", key: 7, id: "Mui", src: <SiMaterialui/>},
+    {name: "HTML", id: "Html", src: <SiHtml5/>},
+    {name: "CSS", id: "Css", src: <SiCss3/>},
+    {name: "JavaScript", id: "Javascript", src: <SiJavascript/>},
+    {name: "Bootstrap", id: "Bootstrap", src: <SiBootstrap/>},
+    {name: "SASS", id: "Sass", src: <FaSass/>},
+    {name: "React", id: "React", src: <SiReact/>},
+    {name: "Material UI", id: "Mui", src: <SiMaterialui/>},
     {name: "Styled Components", key: 8, id: "StyledComponents", src: <SiStyledcomponents/>},
-    {name: "MongoDB", key: 9, id: "Mongodb", src: <SiMongodb/>},
-    {name: "MySQL", key: 10, id: "Mysql", src: <SiMysql/>},
-    {name: "Git", key: 11, id: "Git", src: <FaGitAlt/>},
-    {name: "Photoshop", key: 12, id: "Photoshop", src: <SiAdobephotoshop/>},
-    {name: "Illustrator", key: 13, id: "Illustrator", src: <SiAdobeillustrator/>}
+    {name: "MongoDB", id: "Mongodb", src: <SiMongodb/>},
+    {name: "MySQL", id: "Mysql", src: <SiMysql/>},
+    {name: "Git", id: "Git", src: <FaGitAlt/>},
+    {name: "Photoshop", id: "Photoshop", src: <SiAdobephotoshop/>},
+    {name: "Illustrator", id: "Illustrator", src: <SiAdobeillustrator/>}
   ]
 
   return(
@@ -30,8 +30,10 @@ export default function Technologies() {
           {technologies.map((tech, i) => {
             return (
               <div className='technology' key={i} id={tech.id} style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>
-                {tech.src}
-                <p className='technology-p'>{tech.name}</p>
+                <div className="technology-image" style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>
+                  {tech.src}
+                  <p className='technology-p' style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>{tech.name}</p>
+                </div>
               </div>
             )
           })}

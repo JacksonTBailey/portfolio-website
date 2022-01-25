@@ -12,23 +12,107 @@
 @keyframes fadeInOut{
     0% {
         opacity: 0;
-        transform: scale(0.6) translateX(-110vw);
+        transform: translate(calc(-40.625% + 2.5em));
     }
-    25% {
-        opacity: 0;
-        transform: scale(1) translateX(-75vw);
+    5%{
+        opacity: .2;
+        transform: translate(calc(-46.875% + 2.5em));
+        animation-timing-function: ease-out;
     }
-    75% {
+
+    10%{
+        opacity: .2;
+        transform: translate(calc(-50% + 2.5em));
+        animation-timing-function: ease-in;
+    }
+
+    15%{
+        opacity: .2;
+        transform: translate(calc(-46.875% + 2.5em));
+    }
+
+    20%{
+        opacity: .4;
+        transform: translate(calc(-40.625% + 2.5em));
+    }
+
+    30%{
+        opacity: .6;
+        transform: translate(calc(-25% + 2.5em));
+    }
+
+    40%{
         opacity: 1;
-        transform: scale(1) translateX(-25vw);
+        transform: translate(calc(-12.5% + 2.5em));
     }
+
+    50%{
+        opacity: 1;
+        transform: translate(0%);
+    }
+
+    60%{
+        opacity: 1;
+        transform: translate(calc(12.5% - 2.5em));
+    }
+
+    70% {
+        opacity: .6;
+        transform: translate(calc(25% - 2.5em));
+    }
+    80% {
+        opacity: .4;
+        transform: translate(calc(37.5% - 2.5em));
+    }
+    85%{
+        opacity: 0.2;
+        transform: translate(calc(46.875% - 2.5em));
+        animation-timing-function: ease-out;
+    }
+
+    90%{
+        opacity: 0.2;
+        transform: translate(calc(50% - 2.5em));
+        animation-timing-function: ease-in;
+    }
+
+    95%{
+        opacity: 0.2;
+        transform: translate(calc(46.875% - 2.5em));
+    }
+
     100% {
         opacity: 0;
-        transform: scale(0.6) translateX(0vw);
+        transform: translate(calc(40.625% - 2.5em));
     }
 }
 
+@keyframes scalingAnimation {
+    from {
+        transform: scale(.2);
+    }
+    15%{
+        transform: scale(.6);
+    }
 
+
+    25%{
+        transform: scale(1);
+    }
+
+
+    75%{
+        transform: scale(1);
+    }
+
+    85%{
+        transform: scale(.6);
+    }
+
+    to {
+        transform: scale(.2);
+    }
+}
 
 //Flex and grid
 @mixin flexDisplay($display: flex, $direction: column, $align-self: initial, $align-content: initial, $align-items:initial, $justify-self: initial, $justify-content: initial, $justify-items: initial) {
