@@ -12,105 +12,114 @@
 @keyframes fadeInOut{
     0% {
         opacity: 0;
-        transform: translate(calc(-40.625% + 2.5em));
+        transform: translate(calc(-10% + 2.5em), -50%);
     }
-    5%{
-        opacity: .2;
-        transform: translate(calc(-46.875% + 2.5em));
-        animation-timing-function: ease-out;
+
+    5% {
+        opacity: .1;
+        transform: translate(calc(-20% + 2.5em), -45%);
     }
 
     10%{
         opacity: .2;
-        transform: translate(calc(-50% + 2.5em));
-        animation-timing-function: ease-in;
-    }
-
-    15%{
-        opacity: .2;
-        transform: translate(calc(-46.875% + 2.5em));
+        transform: translate(calc(-30% + 2.5em), -40%);
     }
 
     20%{
         opacity: .4;
-        transform: translate(calc(-40.625% + 2.5em));
+        transform: translate(calc(-47.5% + 2.5em), -15%);
+        animation-timing-function: ease-out;
+
+    }
+    25%{
+        opacity: .4;
+        transform: translate(calc(-50% + 2.5em), 5%);
     }
 
     30%{
         opacity: .6;
-        transform: translate(calc(-25% + 2.5em));
+        transform: translate(calc(-45% + 2.5em), 25%);
     }
 
     40%{
         opacity: 1;
-        transform: translate(calc(-12.5% + 2.5em));
+        transform: translate(calc(-25% + 2.5em), 50%);
     }
 
     50%{
         opacity: 1;
-        transform: translate(0%);
+        transform: translate(calc(0%), 60%);
     }
 
     60%{
         opacity: 1;
-        transform: translate(calc(12.5% - 2.5em));
+        transform: translate(calc(25% - 2.5em), 50%);
     }
 
     70% {
         opacity: .6;
-        transform: translate(calc(25% - 2.5em));
-    }
-    80% {
-        opacity: .4;
-        transform: translate(calc(37.5% - 2.5em));
-    }
-    85%{
-        opacity: 0.2;
-        transform: translate(calc(46.875% - 2.5em));
+        transform: translate(calc(45% - 2.5em), 25%);
         animation-timing-function: ease-out;
+    }
+    75% {
+        opacity: .4;
+        transform: translate(calc(50% - 2.5em), 10%);
+        animation-timing-function: ease-in;
+
+    }
+    80%{
+        opacity: 0.3;
+        transform: translate(calc(37.5% + 2.5em), -10%);
     }
 
     90%{
         opacity: 0.2;
-        transform: translate(calc(50% - 2.5em));
-        animation-timing-function: ease-in;
+        transform: translate(calc(20% + 2.5em), -40%);
     }
 
-    95%{
-        opacity: 0.2;
-        transform: translate(calc(46.875% - 2.5em));
+    95% {
+        opacity: .1;
+        transform: translate(calc(10% + 2.5em), -45%);
     }
 
     100% {
         opacity: 0;
-        transform: translate(calc(40.625% - 2.5em));
+        transform: translate(calc(0% + 2.5em), -50%);
     }
 }
 
 @keyframes scalingAnimation {
     from {
-        transform: scale(.2);
+        transform: scale(.4);
     }
-    15%{
-        transform: scale(.6);
+    5%{
+        transform: scale(.5);
     }
 
 
     25%{
+        transform: scale(.8);
+    }
+
+    40%{
+        transform: scale(1);
+    }
+
+    60%{
         transform: scale(1);
     }
 
 
     75%{
-        transform: scale(1);
+        transform: scale(.8);
     }
 
-    85%{
-        transform: scale(.6);
+    95%{
+        transform: scale(.5);
     }
 
     to {
-        transform: scale(.2);
+        transform: scale(.4);
     }
 }
 
