@@ -31,8 +31,7 @@ export default function Technologies() {
             return (
               <div className='technology' key={i} id={tech.id} style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>
                 <div className="technology-image" style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>
-                  {tech.src}
-                  <p className='technology-p' style={{"animationDelay": `${i * 3}s`, "animationDuration": `${technologies.length * 3}s`}}>{tech.name}</p>
+                   {tech.src}
                 </div>
               </div>
             )
