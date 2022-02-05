@@ -59,7 +59,7 @@ export default function Projects() {
 
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
-        <section className={`project-${project.number}`} key={project.title}>
+        <div className={`project-${project.number}`} key={project.title}>
             <h3 className="project-title">{project.title}</h3>
             <p className="project-description">{project.description}</p>
             <ul className="project-tech-used">{project.technologies.map(technology => {
@@ -74,14 +74,14 @@ export default function Projects() {
                     <figure className="project-image-back" title={project.image[1]}></figure>
                 </a>
             </div>
-        </section>)})
+        </div>)})
 
     return (
-        <div className="project-section">
+        <section className="project-section">
             <h2> Some of My Creations</h2>
             <div className="featured-projects">
                 {mappedProjects}
             </div>
-        </div>
+        </section>
     )
 }

@@ -1,0 +1,60 @@
+@use '../abstracts' as *;
+
+.contact-section{
+    @include gridChild(4,5,2,3)
+}
+
+.contact-form{
+    @include gridParent($autoFlow:row, $gridColumns: 75%);
+    justify-content:center;
+    gap: clamp(1vh, 5vh, 10vh);
+    height: 80vh;
+
+    .contact-form-name, .contact-form-email, .contact-form-message{
+        @include formInput;
+
+        &:focus, &:hover{
+            outline: none;
+            box-shadow: 2px 5px 8px $hover-button-color;
+        }
+    }
+
+    .contact-form-message{
+        resize: none;
+        height: 30vh;
+    }
+
+    label{
+        @include header3;
+    }
+}
+.contact-form-name-section{
+    @include gridParent($autoFlow:row, $gridColumns:auto);
+    gap: 20px;
+
+    .name-label{
+        @include gridChild(1, 2, 1, 3)
+    }
+    .first{
+        @include gridChild(2, 3, 1, 2)
+    }
+    .last{
+        @include gridChild(2, 3, 2, 3)
+    }
+
+}
+
+.contact-form-email-section, .contact-form-message-section{
+    @include gridParent($autoFlow:row, $gridColumns:100%);
+    gap: 20px;
+
+}
+
+.contact-form-send-button-section{
+    @include gridParent($autoFlow:row, $gridColumns:auto);
+    
+    .contact-form-send-button{
+        @include gridChild(1, 2, 1, 2);
+        @include button;
+    }
+}

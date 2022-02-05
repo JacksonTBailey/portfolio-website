@@ -3,8 +3,13 @@
 @use './svgPartials/' as svg;
 
 
-::-webkit-scrollbar{
-  width: 1.5em;
+#root::-webkit-scrollbar{
+  width: 1.5vw;
+}
+
+.contact-form-message::-webkit-scrollbar{
+  width: 1vw;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar-track{

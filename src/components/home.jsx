@@ -4,6 +4,7 @@ import Footer from './footer'
 import Projects from './projects';
 import Timer from './timer';
 import Technologies from './technologies';
+import Contact from './contact';
 
 
 //influenced by https://brittanychiang.com/ , https://www.seanhalpin.design/wip/, https://coryhughart.com/,  https://lynnandtonic.com/ , https://denisechandler.com/ , https://www.rickbossenbroek.nl/, https://robbowen.digital/, and https://www.kemiadeleke.com/
@@ -27,6 +28,7 @@ export default function Home() {
                 </section>
                 <Projects/>
                 <Technologies/>
+                <Contact/>
             </main>
             <Footer/>
         </React.Fragment>
