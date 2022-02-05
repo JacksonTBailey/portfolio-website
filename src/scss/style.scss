@@ -3,6 +3,31 @@
 @use './svgPartials/' as svg;
 
 
+::-webkit-scrollbar{
+  width: 1.5em;
+}
+
+::-webkit-scrollbar-track{
+  background: $background-project-hsl;
+  opacity: 1;
+}
+::-webkit-scrollbar-thumb{
+  background:  $hover-button-color;
+  border: .25em solid $background-project-hsl;
+  border-radius: 100vw;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:  $button-gradient-color;
+}
+
+@supports(scrollbar-color: $hover-button-color){
+  * {
+    scrollbar-color: $background-project-hsl $hover-button-color;
+    scrollbar-width: auto;
+  }
+}
+
+
 h1, h2, h3{
   font-family: $main-font;
 }
