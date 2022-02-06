@@ -9,7 +9,7 @@ export default function Contact() {
                 <input type="hidden" name="_next" value="https://jacksonbailey.design/thankyou.jsx"></input>
                 <input type="text" name="_honey" style={{'display':'none'}}></input>
                 <section className='contact-form-name-section'>
-                    <label htmlFor="fname" className='name-label'>First Name</label>
+                    <label htmlFor="fname" className='name-label'>Name</label>
                     <input className='contact-form-name first' type="text" name='name' placeholder='First Name' required />
                     <input className='contact-form-name last' type="text" name='name' placeholder='Last Name' required />
                 </section>

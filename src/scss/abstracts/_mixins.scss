@@ -125,7 +125,30 @@
     }
 }
 
+@keyframes shaking {
+    0% {
+        transform: translateX(0px) rotate(0deg);
+    }
 
+    20% {
+        transform: translateX(-4px) rotate(-4deg);
+    }
+
+    40% {
+        transform: translateX(-2px) rotate(-2deg);
+    }
+
+    60% {
+        transform: translateX(4px) rotate(4deg);
+    }
+
+    80% {
+        transform: translateX(2px) rotate(2deg);
+    }
+
+    100% {
+        transform: translateX(0px) rotate(0deg);
+    }  }
 
 //Flex and grid
 @mixin flexDisplay($display: flex, $direction: column, $align-self: initial, $align-content: initial, $align-items:initial, $justify-self: initial, $justify-content: initial, $justify-items: initial) {
@@ -219,33 +242,28 @@
     @content;
 }
 
-@mixin button($background1: a.$hover-button-color, $background2: a.$hover-button-color-2, $textColor: a.$background-color-page, $fontWeight: 700, $justifySelf: end, $padding: clamp(10px, 1vh, 15px) clamp(20px, 6vw, 60px), $border: none, $shadowGradient: $button-gradient-color) {
+@mixin button($background1: a.$hover-button-color-2, $background2: a.$hover-button-color, $textColor: a.$background-color-page, $fontWeight: 500, $justifySelf: end, $padding: clamp(10px, 1vh, 15px) clamp(20px, 6vw, 60px), $border: none, $shadowGradient: a.$button-gradient-color, $transition:  all 1s cubic-bezier(.25,.8,.25,1)) {
     justify-content: center;
     justify-self: $justifySelf;
     font-family: f.$secondary-font;
     font-size: clamp(16px, 5vw, 20px);
     font-weight: $fontWeight;
-    background-image: linear-gradient(to right, $background1, 50%, $background2);
+    background-image: linear-gradient(to right, $background1, 20%, $background2, 50%, $background2, 80%, $background1);
     color: $textColor;
     padding: $padding;
     border-radius: .5rem;
     border: $border;
     cursor: pointer;
-    box-shadow: 0 1px 3px $shadowGradient, 0 1px 2px $shadowGradient;
-    transition: all 1s cubic-bezier(.25,.8,.25,1);
+    transition: $transition;
     background-size: 200% auto;
     white-space: nowrap;
+    letter-spacing: 1px;
+
 
     &:hover{
         background-position: right center;
         box-shadow: 0 5px 15px $shadowGradient;
     }
-}
-
-@mixin buttonHover($backgroundColor){
-    background-color: $backgroundColor;
-    color: $textColor;
-
 }
 
 
@@ -384,8 +402,10 @@
     margin: 5px 15px;
     cursor:pointer;
     color: $regularColor;
+
     &:hover {
       color: $hoverColor;
+      transition: .3s;
     }
 
   
