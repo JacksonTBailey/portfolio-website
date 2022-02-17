@@ -275,7 +275,7 @@
 
 }
 
-@mixin projectSection($directory,$image, $type, $position){
+@mixin projectSectionDesktop($directory,$image, $type, $position){
     @include gridParent($gridColumns: repeat(12, 1fr), $gridRows: 6);
     justify-self: center;
     justify-items: right ;
@@ -361,6 +361,91 @@
             @include socialMedia(a.$text-color, a.$hover-button-color)
         }
     }
+}
+
+@mixin projectSectionMobile($directory,$image, $type, $position){
+
+    @include gridParent($gridColumns: repeat(1, 1fr));
+    justify-self: center;
+    justify-items: center;
+    max-width: 1200px;
+    width: clamp(90%, 50vw, 100%);
+    padding: clamp(1rem, 20%, 2rem);
+    gap: 2rem;
+    background-color: a.$background-project-box;
+    border-radius: 1rem;
+
+    //Box title, content, links
+    .project-title{
+        @include gridChild(1, 2, 1, 2)
+    }
+
+    .flip-box {
+        @include gridChild(2, 3, 1, 2);
+        background-color: transparent;
+        align-self: center;
+        width: clamp(150px, 100vw, 600px);
+        height: clamp(100px, 100vh, 400px);
+        perspective: 1000px;
+    }
+
+    .project-links{
+        @include gridChild(3, 4, 1, 2);
+        margin:0;
+        justify-self: right;
+
+    }
+
+    
+    //Animates the box 
+    .flip-box-relative{
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+    .flip-box:active .flip-box-relative:active {
+        transform: #{$position}(180deg);
+    }
+
+    .project-image, .project-flip {
+        position: absolute;
+        object-fit: scale-down;
+        width: 100%;
+        height: 100%;
+        margin:0;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    .project-image{
+        background-image: url(#{$directory}/#{$image}.#{$type});
+    }
+
+    //project description and technologies used
+    .project-flip {
+        @include gridParent($gridColumns: repeat(3, 1fr));
+        transform: #{$position}(180deg);
+    }
+
+    .project-description{
+        @include gridChild(1, 2, 1, 3)
+    }
+
+    .project-tech-used{
+        @include unordered-list($textDecoration: none, $listStyle: none, $whiteSpace: nowrap){
+            @include gridChild(2, 3, 1, 3);
+            @include gridParent($gridColumns: repeat(3, 1fr), $gridRows:auto);
+            gap:10px;
+            li{
+                @include list(a.$primary-button-color)
+            }
+        }
+    }
+
 }
 
 @mixin slider {

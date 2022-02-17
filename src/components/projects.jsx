@@ -1,7 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
+
 
 export default function Projects() {
+    //Check screen size
+    const [screenSize, getDimension] = useState({dynamicWidth:window.innerWidth, dynamicHeight: window.innerHeight});
+    
+    const setDimension = () => {
+        getDimension({
+            dynamicWidth: window.innerWidth,
+            dynamicHeight: window.innerHeight
+        })
+    }
 
+    useEffect(() => {
+        window.addEventListener('resize', setDimension);
+        return (() => {
+            window.removeEventListener('resize', setDimension)
+        })
+    }, [screenSize])
+
+
+    //Array of my projects
     const featuredProjects= [
         {
             title: "Adventures in Yolrein",
@@ -57,6 +76,8 @@ export default function Projects() {
         }
     ]
 
+
+    //Mapped project section variation for laptop/desktop
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
         <div className={`project-${project.number}`} key={project.title}>
@@ -76,11 +97,36 @@ export default function Projects() {
             </div>
         </div>)})
 
+
+    //Mapped project section variation for mobile/tablet
+    const mappedProjectsSmall = featuredProjects.map((project)=>{
+        return( 
+        <div className={`project-${project.number}`} key={project.title}>
+            <h3 className="project-title">{project.title}</h3>
+            
+            <section className='flip-box'>
+                <div className='flip-box-relative'>
+                    <figure className="project-image" title={project.image[1]}></figure>
+                    <section className='project-flip'>
+                        <p className="project-description">{project.description}</p>
+                        <ul className="project-tech-used">{project.technologies.map(technology => {
+                            return(<li key={technology}>{technology}</li>)})}
+                        </ul>
+                    </section>
+                </div>
+            </section>
+
+            <div className="project-links">{project.links.map(link =>{
+                return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
+            </div>
+
+        </div>)})    
+
     return (
         <section className="project-section">
             <h2> Some of My Creations</h2>
             <div className="featured-projects">
-                {mappedProjects}
+                {(screenSize.dynamicWidth >= 1226) ? mappedProjects : mappedProjectsSmall}
             </div>
         </section>
     )

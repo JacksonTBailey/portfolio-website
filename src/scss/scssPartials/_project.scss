@@ -12,7 +12,7 @@ h2{
   
 .featured-projects{
 display: grid;
-max-width: 100vw;
+max-width: 100%;
 grid-template-rows: repeat(3, 1fr);
 grid-gap:4rem;
 
@@ -25,22 +25,76 @@ grid-gap:4rem;
     }
 
     .project-1{
-        @include projectSection("../../images", "text_adventure_game", "png", rotateX);
+        @include projectSectionDesktop("../../images", "text_adventure_game", "png", rotateX);
 
     }
 
     .project-2{
-        @include projectSection("../../images", "recipes_r_us", "png", rotateY);
+        @include projectSectionDesktop("../../images", "recipes_r_us", "png", rotateY);
 
     }
 
     .project-3{
-        @include projectSection("../../images", "weather_api", "png", rotateY);
+        @include projectSectionDesktop("../../images", "weather_api", "png", rotateY);
 
     }
 
     .project-4{
-        @include projectSection("../../images", "simon_game", "png", rotateX);
+        @include projectSectionDesktop("../../images", "simon_game", "png", rotateX);
 
     }
+}
+
+@media screen and (min-width:630px) and (max-width: 1225px){
+    .featured-projects{
+        width: auto;
+
+
+        .project-1{
+            @include projectSectionMobile("../../images", "text_adventure_game", "png", rotateX);
+
+        }
+
+        .project-2{
+            @include projectSectionMobile("../../images", "recipes_r_us", "png", rotateY);
+
+        }
+
+        .project-3{
+            @include projectSectionMobile("../../images", "weather_api", "png", rotateY);
+
+        }
+
+        .project-4{
+            @include projectSectionMobile("../../images", "simon_game", "png", rotateX);
+
+        }
+    }
+}
+
+@media screen and (max-width: 630px){
+    .featured-projects{
+        width: auto;
+        
+
+        .project-1{
+            @include projectSectionMobile("../../images", "text_adventure_game", "png", rotateX);
+
+        }
+
+        .project-2{
+            @include projectSectionMobile("../../images", "recipes_r_us", "png", rotateY);
+
+        }
+
+        .project-3{
+            @include projectSectionMobile("../../images", "weather_api", "png", rotateY);
+
+        }
+
+        .project-4{
+            @include projectSectionMobile("../../images", "simon_game", "png", rotateX);
+
+        }
+    }  
 }
