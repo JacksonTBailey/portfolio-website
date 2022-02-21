@@ -79,21 +79,24 @@ export default function Projects() {
     ]
 
 
-    //adds active state to cards so they flip
-    const [activeClassStatus, setActiveClassStatus] = useState(featuredProjects);
+    // //adds active state to cards so they flip
+    // const [activeClassStatus, setActiveClassStatus] = useState(featuredProjects);
 
-    const handleClick = (projectID) => {
-        setActiveClassStatus(
-            activeClassStatus.map((classStatus) =>{
-                if (classStatus.number === projectID){
-                    let toggleActiveClass = document.querySelector(`.project-${projectID}`);
-                    toggleActiveClass.classList.toggle('active')
-                    }
-                }
-            )
-        )
+    // const handleClick = (projectID) => {
+    //     setActiveClassStatus(
+    //         activeClassStatus.map((classStatus) =>{
+    //             if (classStatus.number === projectID){
+    //                 let toggleActiveClass = document.querySelector(`.project-${projectID}`);
+    //                 toggleActiveClass.classList.toggle('active')
+    //                 }
+    //             }
+    //         )
+    //     )
+    // }
+    let handleClick = (number) =>{
+        let promoClass = document.querySelector(`.project-${number}`);
+        promoClass.classList.toggle('is-flipped')
     }
-
 
     //Mapped project section variation for laptop/desktop
     const mappedProjects = featuredProjects.map((project)=>{
@@ -117,7 +120,7 @@ export default function Projects() {
 
 
     //Mapped project section variation for mobile/tablet
-    const mappedProjectsSmall = activeClassStatus.map((project)=>{
+    const mappedProjectsSmall = featuredProjects.map((project)=>{
 
 
         return( 
@@ -142,7 +145,7 @@ export default function Projects() {
                     <ul className="project-tech-used">{project.technologies.map(technology => {
                         return(<li key={technology}>{technology}</li>)})}
                     </ul>
-                    <button className='card-flip-button' onClick={() => handleClick(project.number)}>Less Info</button>                
+                    <button className='card-flip-button-back' onClick={() => handleClick(project.number)}>Less Info</button>                
                     <div className="project-links-flip">{project.links.map(link =>{
                         return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
                     </div> 

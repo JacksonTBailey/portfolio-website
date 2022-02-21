@@ -51,22 +51,22 @@ grid-gap:4rem;
 
 
         .project-1{
-            @include projectSectionMobile("../../images", "text_adventure_game", "png", rotateX);
+            @include projectSectionMobile2("../../images", "text_adventure_game", "png", rotateX);
 
         }
 
         .project-2{
-            @include projectSectionMobile("../../images", "recipes_r_us", "png", rotateY);
+            @include projectSectionMobile2("../../images", "recipes_r_us", "png", rotateY);
 
         }
 
         .project-3{
-            @include projectSectionMobile("../../images", "weather_api", "png", rotateY);
+            @include projectSectionMobile2("../../images", "weather_api", "png", rotateY);
 
         }
 
         .project-4{
-            @include projectSectionMobile("../../images", "simon_game", "png", rotateX);
+            @include projectSectionMobile2("../../images", "simon_game", "png", rotateX);
 
         }
     }
@@ -78,22 +78,22 @@ grid-gap:4rem;
         
 
         .project-1{
-            @include projectSectionMobile("../../images", "text_adventure_game", "png", rotateX);
+            @include projectSectionMobile2("../../images", "text_adventure_game", "png", rotateX);
 
         }
 
         .project-2{
-            @include projectSectionMobile("../../images", "recipes_r_us", "png", rotateY);
+            @include projectSectionMobile2("../../images", "recipes_r_us", "png", rotateY);
 
         }
 
         .project-3{
-            @include projectSectionMobile("../../images", "weather_api", "png", rotateY);
+            @include projectSectionMobile2("../../images", "weather_api", "png", rotateY);
 
         }
 
         .project-4{
-            @include projectSectionMobile("../../images", "simon_game", "png", rotateX);
+            @include projectSectionMobile2("../../images", "simon_game", "png", rotateX);
 
         }
     }  

@@ -369,6 +369,7 @@
     width: clamp(150px, 100vw, 600px);
     perspective: 1000px;
     background-color: a.$background-project-box;
+    padding: 0;
     
 
     .flip-box{
@@ -383,12 +384,14 @@
 
     .project-front{
         @include gridParent();
-        width: clamp(150px, 100vw, 600px);
+        width: clamp(150px, 90%, 600px);
+        backface-visibility: hidden;
 
         .project-image{
             @include gridChild(1, 2, 1, 3);
             position: relative;
-
+            width: clamp(150px, 100vw, 600px);
+            height: clamp(100px, 100vh, 400px);
             img{
                 display: block;
                 object-fit:scale-down;
@@ -397,16 +400,63 @@
         }
 
         .project-title{
-            @include gridChild(2, 3, 1, 3)
+            @include gridChild(2, 3, 1, 3);
+            @include header3;
         }
 
         .card-flip-button{
-            @include gridChild(3, 4, 1, 2)
-
+            @include gridChild(3, 4, 1, 2);
+            @include button;
         }
 
         .project-links{
             @include gridChild(3, 4, 2, 3)
+        }
+    }
+
+    .project-back{
+        @include gridParent();
+        width: clamp(150px, 100vw, 600px);
+        backface-visibility: hidden;
+
+
+        .project-title-flip{
+            @include gridChild(1, 2, 1, 3);
+
+        }
+
+        .project-description{
+            @include gridChild(2, 3, 1, 3);
+
+        }
+
+        .project-tech-used{
+            @include gridChild(3, 4, 1, 3);
+            @include unordered-list($textDecoration: none, $listStyle: none, $whiteSpace: nowrap){
+                @include gridChild(2, 3, 1, 3);
+                @include gridParent($gridColumns: repeat(3, 1fr), $gridRows:auto);
+                gap:10px;
+                li{
+                    @include list(a.$primary-button-color)
+                }    
+            }
+        }
+
+        .card-flip-button-back{
+            @include gridChild(4, 5, 1, 2);
+            @include button;
+
+        }
+
+        .project-links-flip{
+            @include gridChild(4, 5, 2, 3);
+            @include flexDisplay($direction: row, $align-content:center);
+            margin-top: clamp(20px, 1vh, 2vh);
+            
+            .fab, .fas{
+                @include socialMedia(a.$text-color, a.$hover-button-color)
+            }
+    
 
         }
     }
