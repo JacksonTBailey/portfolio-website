@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 
 
 export default function Projects() {
+    
     //Check screen size
     const [screenSize, getDimension] = useState({dynamicWidth:window.innerWidth, dynamicHeight: window.innerHeight});
     
@@ -18,6 +19,7 @@ export default function Projects() {
             window.removeEventListener('resize', setDimension)
         })
     }, [screenSize])
+
 
 
     //Array of my projects
@@ -77,6 +79,22 @@ export default function Projects() {
     ]
 
 
+    //adds active state to cards so they flip
+    const [activeClassStatus, setActiveClassStatus] = useState(featuredProjects);
+
+    const handleClick = (projectID) => {
+        setActiveClassStatus(
+            activeClassStatus.map((classStatus) =>{
+                if (classStatus.number === projectID){
+                    let toggleActiveClass = document.querySelector(`.project-${projectID}`);
+                    toggleActiveClass.classList.toggle('active')
+                    }
+                }
+            )
+        )
+    }
+
+
     //Mapped project section variation for laptop/desktop
     const mappedProjects = featuredProjects.map((project)=>{
         return( 
@@ -91,39 +109,45 @@ export default function Projects() {
             </div>
             <div className='flip-box'>
                 <a className="project-image-url" href={project.links[1].url} target="_blank" rel="noreferrer">
-                    <figure className="project-image" title={project.image[1]}></figure>
-                    <figure className="project-image-back" title={project.image[1]}></figure>
+                    <figure className="project-image" title={project.image.alt}></figure>
+                    <figure className="project-image-back" title={project.image.alt}></figure>
                 </a>
             </div>
         </div>)})
 
 
     //Mapped project section variation for mobile/tablet
-    const mappedProjectsSmall = featuredProjects.map((project)=>{
+    const mappedProjectsSmall = activeClassStatus.map((project)=>{
+
+
         return( 
         <div className={`project-${project.number}`} key={project.title}>                    
             <section className='flip-box'>
-                {/* <div className='flip-box-relative'> */}
-
-                    <figure className="project-image" title={project.image[1]}></figure>
-                    <h3 className="project-title">{project.title}</h3>                
+                
+                <section className='project-front'>
+                    <figure className="project-image" title={project.image.alt}>
+                        <img src={project.image.src} alt={project.image.alt} />
+                    </figure>
+                    <h3 className="project-title">{project.title}</h3>
+                    <button className='card-flip-button' onClick={() => handleClick(project.number)}>More Info</button>                
                     <div className="project-links">{project.links.map(link =>{
                         return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
                     </div>
+                </section>
 
                     
-                    <section className='project-flip'>
-                        <h3 className="project-title-flip">{project.title}</h3>                
-                        <p className="project-description">{project.description}</p>
-                        <ul className="project-tech-used">{project.technologies.map(technology => {
-                            return(<li key={technology}>{technology}</li>)})}
-                        </ul>
-                        <div className="project-links-flip">{project.links.map(link =>{
-                            return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
-                        </div> 
-                    </section>
-                    
-                {/* </div> */}
+                <section className='project-back'>
+                    <h3 className="project-title-flip">{project.title}</h3>                
+                    <p className="project-description">{project.description}</p>
+                    <ul className="project-tech-used">{project.technologies.map(technology => {
+                        return(<li key={technology}>{technology}</li>)})}
+                    </ul>
+                    <button className='card-flip-button' onClick={() => handleClick(project.number)}>Less Info</button>                
+                    <div className="project-links-flip">{project.links.map(link =>{
+                        return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
+                    </div> 
+                </section>
+
             </section>
         </div>)})    
 
