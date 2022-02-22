@@ -367,8 +367,9 @@
     @include gridParent($gridType: inline-grid);
     align-self: center;
     width: clamp(150px, 100vw, 600px);
+    height: clamp(150px, 100vw, 600px);
     perspective: 1000px;
-    background-color: a.$background-project-box;
+    background-color: a.$background-color-page;
     padding: 0;
     
 
@@ -380,12 +381,25 @@
         height: 100%;
         transition: transform 0.8s;
         transform-style: preserve-3d;
+        cursor: pointer;
+    }
+
+    .flip-box.is-flipped{
+        transform: rotateY(180deg)
+    }
+
+    .project-content{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        overflow: hidden;
     }
 
     .project-front{
         @include gridParent();
-        width: clamp(150px, 90%, 600px);
-        backface-visibility: hidden;
+        background-color: a.$background-project-box;
 
         .project-image{
             @include gridChild(1, 2, 1, 3);
@@ -416,8 +430,9 @@
 
     .project-back{
         @include gridParent();
-        width: clamp(150px, 100vw, 600px);
-        backface-visibility: hidden;
+        transform: rotateY(180deg);
+        background-color: a.$background-project-box;
+
 
 
         .project-title-flip{

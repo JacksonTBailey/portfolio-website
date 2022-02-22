@@ -93,8 +93,8 @@ export default function Projects() {
     //         )
     //     )
     // }
-    let handleClick = (number) =>{
-        let promoClass = document.querySelector(`.project-${number}`);
+    let handleClick = () =>{
+        let promoClass = document.querySelector(`.flip-box`);
         promoClass.classList.toggle('is-flipped')
     }
 
@@ -127,19 +127,19 @@ export default function Projects() {
         <div className={`project-${project.number}`} key={project.title}>                    
             <section className='flip-box'>
                 
-                <section className='project-front'>
+                <section className='project-content project-front'>
                     <figure className="project-image" title={project.image.alt}>
                         <img src={project.image.src} alt={project.image.alt} />
                     </figure>
                     <h3 className="project-title">{project.title}</h3>
-                    <button className='card-flip-button' onClick={() => handleClick(project.number)}>More Info</button>                
+                    <button className='card-flip-button' onClick={handleClick}>More Info</button>                
                     <div className="project-links">{project.links.map(link =>{
                         return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
                     </div>
                 </section>
 
                     
-                <section className='project-back'>
+                <section className='project-content project-back'>
                     <h3 className="project-title-flip">{project.title}</h3>                
                     <p className="project-description">{project.description}</p>
                     <ul className="project-tech-used">{project.technologies.map(technology => {
