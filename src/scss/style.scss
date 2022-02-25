@@ -79,3 +79,17 @@ main{
   grid-template-columns: clamp(6%, 20%, 10%) auto clamp(6%, 20%, 10%) ;
   width: 100%;
 }
+
+@media screen and (min-width:630px) and (max-width: 1225px){
+  main{
+    @include gridParent();
+
+  }
+}
+
+@media screen and (min-width:1226px){
+  main{
+    @include gridParent();
+
+  }
+}

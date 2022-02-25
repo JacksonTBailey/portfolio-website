@@ -13,6 +13,7 @@ h2{
 .featured-projects{
 display: grid;
 max-width: 100%;
+width: auto;
 grid-template-rows: repeat(3, 1fr);
 grid-gap:4rem;
 
@@ -46,6 +47,10 @@ grid-gap:4rem;
 }
 
 @media screen and (min-width:630px) and (max-width: 1225px){
+    .project-section{
+        @include gridChild(2,3,1,2)
+    }
+
     .featured-projects{
         width: auto;
 
@@ -73,6 +78,10 @@ grid-gap:4rem;
 }
 
 @media screen and (max-width: 630px){
+    .project-section{
+        @include gridChild(2,3,1,2)
+    }
+
     .featured-projects{
         width: auto;
         

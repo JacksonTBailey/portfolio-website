@@ -59,3 +59,18 @@
         @include button;
     }
 }
+
+@media screen and (min-width:630px) and (max-width: 1225px){
+    .contact-section{
+      @include gridChild(4,5,1,2);
+
+    }
+  }
+
+@media screen and (min-width:1226px){
+.contact-section{
+    @include gridChild(4,5,1,2);
+    
+}
+
+}

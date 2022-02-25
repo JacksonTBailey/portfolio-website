@@ -366,8 +366,8 @@
 @mixin projectSectionMobile2($directory,$image, $type, $position){
     @include gridParent($gridType: inline-grid);
     align-self: center;
-    width: clamp(150px, 100vw, 600px);
-    height: clamp(150px, 100vw, 600px);
+    width: clamp(150px, 90vw, 600px);
+    height: clamp(150px, 90vw, 600px);
     perspective: 1000px;
     background-color: a.$background-color-page;
     padding: 0;
