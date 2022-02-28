@@ -63,14 +63,37 @@
 @media screen and (min-width:630px) and (max-width: 1225px){
     .contact-section{
       @include gridChild(4,5,1,2);
+    }
+    .contact-form-name-section{
+        .name-label{
+            @include gridChild(1, 2, 1, 2)
+        }
+
+        .first{
+            @include gridChild(2, 3, 1, 2)
+        }
+        .last{
+            @include gridChild(3, 4, 1, 2)
+        }
 
     }
+
   }
 
-@media screen and (min-width:1226px){
-.contact-section{
-    @include gridChild(4,5,1,2);
-    
-}
+@media screen and (max-width:630px){
+    .contact-section{
+        @include gridChild(4,5,1,2);   
+    }
+    .contact-form-name-section{
+        .name-label{
+            @include gridChild(1, 2, 1, 2)
+        }
+        .first{
+            @include gridChild(2, 3, 1, 2)
+        }
+        .last{
+            @include gridChild(3, 4, 1, 2)
+        }
 
+    }
 }

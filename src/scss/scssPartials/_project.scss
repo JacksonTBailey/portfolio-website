@@ -1,109 +1,103 @@
 @use '../abstracts' as *;
 
 .project-section{
-  @include gridChild(2, 3, 2, 3);
+    @include gridChild(2,3,1,2);
     margin-bottom: 10vh;
 }
 
 h2{
     margin-bottom: 5rem;
-  }
-  
+}
   
 .featured-projects{
 display: grid;
+grid-gap:5vh;
+justify-items: center;
 max-width: 100%;
 width: auto;
-grid-template-rows: repeat(3, 1fr);
-grid-gap:4rem;
+}
+
+.stacked{
+    display: grid
+}
+
+.stacked > *{
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+.project-1{
+    @include projectSectionMobile(rotateX);
+
+}
+
+.project-2{
+    @include projectSectionMobile(rotateX);
+
+}
+
+.project-3{
+    @include projectSectionMobile(rotateX);
+
+}
+
+.project-4{
+    @include projectSectionMobile(rotateX);
+
+}
+
+@media screen and (min-width:630px) and (max-width: 1225px){
+    .project-section{
+        @include gridChild(2,3,1,2);
+    }
+
+    .project-1{
+        @include projectSectionMobile($position: rotateX);
+        aspect-ratio: 1 / 1;
+    }
+
+    .project-2{
+        @include projectSectionMobile($position: rotateY);
+        aspect-ratio: 1 / 1;
+    }
+
+    .project-3{
+        @include projectSectionMobile($position: rotateY);
+        aspect-ratio: 1 / 1;
+    }
+
+    .project-4{
+        @include projectSectionMobile($position: rotateX);
+        aspect-ratio: 1 / 1;
+    }
+}
+
+@media(min-width:1226px) {
+    .project-section{
+        @include gridChild(2, 3, 2, 3);
+    }
+
+    .featured-projects{
+        width: auto;
+    }
 
     .project-description{
         @include projectBox();
     }
 
-    .featured-projects{
-        display: grid;
-    }
-
     .project-1{
         @include projectSectionDesktop("../../images", "text_adventure_game", "png", rotateX);
-
     }
 
     .project-2{
         @include projectSectionDesktop("../../images", "recipes_r_us", "png", rotateY);
-
     }
 
     .project-3{
         @include projectSectionDesktop("../../images", "weather_api", "png", rotateY);
-
     }
 
     .project-4{
         @include projectSectionDesktop("../../images", "simon_game", "png", rotateX);
-
     }
-}
-
-@media screen and (min-width:630px) and (max-width: 1225px){
-    .project-section{
-        @include gridChild(2,3,1,2)
-    }
-
-    .featured-projects{
-        width: auto;
-
-
-        .project-1{
-            @include projectSectionMobile2("../../images", "text_adventure_game", "png", rotateX);
-
-        }
-
-        .project-2{
-            @include projectSectionMobile2("../../images", "recipes_r_us", "png", rotateY);
-
-        }
-
-        .project-3{
-            @include projectSectionMobile2("../../images", "weather_api", "png", rotateY);
-
-        }
-
-        .project-4{
-            @include projectSectionMobile2("../../images", "simon_game", "png", rotateX);
-
-        }
-    }
-}
-
-@media screen and (max-width: 630px){
-    .project-section{
-        @include gridChild(2,3,1,2)
-    }
-
-    .featured-projects{
-        width: auto;
-        
-
-        .project-1{
-            @include projectSectionMobile2("../../images", "text_adventure_game", "png", rotateX);
-
-        }
-
-        .project-2{
-            @include projectSectionMobile2("../../images", "recipes_r_us", "png", rotateY);
-
-        }
-
-        .project-3{
-            @include projectSectionMobile2("../../images", "weather_api", "png", rotateY);
-
-        }
-
-        .project-4{
-            @include projectSectionMobile2("../../images", "simon_game", "png", rotateX);
-
-        }
-    }  
 }

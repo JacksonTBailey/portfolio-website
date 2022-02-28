@@ -217,8 +217,7 @@
     color: $color;
 }
 
-@mixin unordered-list($display: grid, $alignContent: center, $justifySelf: center, $textAlign: center, $textDecoration: auto, $listStyle: circle, $whiteSpace: inherit) {
-    display: $display;
+@mixin unordered-list($alignContent: center, $justifySelf: center, $textAlign: center, $textDecoration: auto, $listStyle: circle, $whiteSpace: inherit) {
     padding: 0;
     align-content: $alignContent;
     justify-self: $justifySelf;
@@ -363,11 +362,11 @@
     }
 }
 
-@mixin projectSectionMobile2($directory,$image, $type, $position){
+@mixin projectSectionMobile($position: rotateX){
     @include gridParent($gridType: inline-grid);
     align-self: center;
-    width: clamp(150px, 90vw, 600px);
-    height: clamp(150px, 90vw, 600px);
+    width: clamp(300px, 90%, 600px);
+    aspect-ratio: 1 / 1.1;
     perspective: 1000px;
     background-color: a.$background-color-page;
     padding: 0;
@@ -385,7 +384,8 @@
     }
 
     .flip-box.is-flipped{
-        transform: rotateY(180deg)
+        transform: #{$position}(180deg);
+        aspect-ratio: 1/2;
     }
 
     .project-content{
@@ -400,56 +400,76 @@
     .project-front{
         @include gridParent();
         background-color: a.$background-project-box;
+        border-radius: 3%;
+
 
         .project-image{
-            @include gridChild(1, 2, 1, 3);
+            @include gridChild(1, 2, 1, 2);
             position: relative;
-            width: clamp(150px, 100vw, 600px);
-            height: clamp(100px, 100vh, 400px);
+            margin:0;
+
             img{
                 display: block;
-                object-fit:scale-down;
                 width: 100%;
+                aspect-ratio: 1 / .666;
+                object-fit:scale-down;
             }
         }
 
+        .project-content-inner{
+            @include gridChild(2, 3, 1, 2);
+            @include gridParent($gridColumns: repeat(2, 1fr));
+            padding: 0 5% 8% 5%;
+        }
+
         .project-title{
-            @include gridChild(2, 3, 1, 3);
-            @include header3;
+            @include gridChild(1, 2, 1, 3);
+            @include header3($preferredSize:6vw);
         }
 
         .card-flip-button{
-            @include gridChild(3, 4, 1, 2);
-            @include button;
+            @include gridChild(2, 3, 1, 2);
+            @include button($padding: clamp(10px, 10vw, 12px) clamp(20px, 10vw, 30px));
+            justify-self: center;
         }
 
         .project-links{
-            @include gridChild(3, 4, 2, 3)
+            @include gridChild(2, 3, 2, 3);
+            align-self: center;
+
+            .fab, .fas{
+                @include socialMedia(a.$text-color, a.$hover-button-color, $size: 2rem);
+            }
+
         }
+
     }
 
     .project-back{
-        @include gridParent();
-        transform: rotateY(180deg);
+        @include gridParent($gridColumns: repeat(2, 1fr));
+        transform: rotateX(-180deg);
         background-color: a.$background-project-box;
+        border-radius: 3%;
 
 
 
         .project-title-flip{
             @include gridChild(1, 2, 1, 3);
-
+            @include header3($preferredSize:6vw);
+            margin-bottom: 0;
         }
 
         .project-description{
             @include gridChild(2, 3, 1, 3);
+            text-align: left;
+            margin: 0 5%
 
         }
 
         .project-tech-used{
             @include gridChild(3, 4, 1, 3);
             @include unordered-list($textDecoration: none, $listStyle: none, $whiteSpace: nowrap){
-                @include gridChild(2, 3, 1, 3);
-                @include gridParent($gridColumns: repeat(3, 1fr), $gridRows:auto);
+                @include gridParent($gridColumns: repeat(2, 1fr), $gridRows:auto);
                 gap:10px;
                 li{
                     @include list(a.$primary-button-color)
@@ -459,14 +479,14 @@
 
         .card-flip-button-back{
             @include gridChild(4, 5, 1, 2);
-            @include button;
+            @include button($padding: clamp(10px, 10vw, 12px) clamp(20px, 10vw, 30px));
+            align-self: center;
 
         }
 
         .project-links-flip{
             @include gridChild(4, 5, 2, 3);
-            @include flexDisplay($direction: row, $align-content:center);
-            margin-top: clamp(20px, 1vh, 2vh);
+            align-self: center;
             
             .fab, .fas{
                 @include socialMedia(a.$text-color, a.$hover-button-color)
@@ -475,91 +495,6 @@
 
         }
     }
-}
-
-@mixin projectSectionMobile($directory,$image, $type, $position){
-
-    @include gridParent($gridColumns: repeat(1, 1fr));
-    justify-self: center;
-    justify-items: center;
-    max-width: 1200px;
-    width: clamp(90%, 50vw, 100%);
-    padding: clamp(1rem, 20%, 2rem);
-    gap: 2rem;
-    background-color: a.$background-project-box;
-    border-radius: 1rem;
-
-    //Box title, content, links
-    .project-title{
-        @include gridChild(1, 2, 1, 2)
-    }
-
-    .flip-box {
-        @include gridChild(2, 3, 1, 2);
-        background-color: transparent;
-        align-self: center;
-        width: clamp(150px, 100vw, 600px);
-        height: clamp(100px, 100vh, 400px);
-        perspective: 1000px;
-    }
-
-    .project-links{
-        @include gridChild(3, 4, 1, 2);
-        margin:0;
-        justify-self: right;
-
-    }
-
-    
-    //Animates the box 
-    .flip-box-relative{
-        position: relative;
-        display: block;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.8s;
-        transform-style: preserve-3d;
-    }
-    .flip-box:active .flip-box-relative:active {
-        transform: #{$position}(180deg);
-    }
-
-    .project-image, .project-flip {
-        position: absolute;
-        object-fit: scale-down;
-        width: 100%;
-        height: 100%;
-        margin:0;
-        -webkit-backface-visibility: hidden;
-        backface-visibility: hidden;
-    }
-
-    .project-image{
-        background-image: url(#{$directory}/#{$image}.#{$type});
-    }
-
-    //project description and technologies used
-    .project-flip {
-        @include gridParent($gridColumns: repeat(3, 1fr));
-        transform: #{$position}(180deg);
-    }
-
-    .project-description{
-        @include gridChild(1, 2, 1, 3)
-    }
-
-    .project-tech-used{
-        @include unordered-list($textDecoration: none, $listStyle: none, $whiteSpace: nowrap){
-            @include gridChild(2, 3, 1, 3);
-            @include gridParent($gridColumns: repeat(3, 1fr), $gridRows:auto);
-            gap:10px;
-            li{
-                @include list(a.$primary-button-color)
-            }
-        }
-    }
-
 }
 
 @mixin slider {
@@ -594,8 +529,8 @@
     }
 }
 
-@mixin socialMedia($regularColor, $hoverColor){
-    font-size: 1.75rem;
+@mixin socialMedia($regularColor, $hoverColor, $size: 1.75rem){
+    font-size: $size;
     grid-row: 1;
     justify-self: center;
     margin: 5px 15px;

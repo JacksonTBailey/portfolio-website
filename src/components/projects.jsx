@@ -1,4 +1,8 @@
 import React, {useState, useEffect} from 'react';
+import text_adventure_game from '../images/text_adventure_game.png';
+import recipes_r_us from '../images/recipes_r_us.png';
+import weather_wherever from '../images/weather_api.png';
+import simon_game from '../images/simon_game.png';
 
 
 export default function Projects() {
@@ -34,7 +38,7 @@ export default function Projects() {
                 {name: "External Link", url: "https://jacksontbailey.github.io/Text_Adventure_Game/", class: "fas fa-external-link-alt"}
                 ],
             image: [
-                {src: "images/text_adventure_game.png", alt: "Adventures in Yolrein"},
+                {src: recipes_r_us, alt: "Adventures in Yolrein"},
             ]
         },
         {
@@ -47,7 +51,7 @@ export default function Projects() {
                 {name: "External Link", url: "https://recipes-r-us.netlify.app/recipes", class: "fas fa-external-link-alt"}
                 ],
             image: [
-                {src: "images/recipes_r_us.png", alt: "Recipes R' Us"},
+                {src: text_adventure_game, alt: "Recipes R' Us"},
             ]
         },
         {
@@ -60,7 +64,7 @@ export default function Projects() {
                 {name: "External Link", url: "https://weather-wherever.netlify.app/", class: "fas fa-external-link-alt"}
                 ],
             image: [
-                {src: "images/weather_api.png", alt: "Weather Wherever"},
+                {src: weather_wherever, alt: "Weather Wherever"},
             ]
         },
         {
@@ -73,7 +77,7 @@ export default function Projects() {
                 {name: "External Link", url: "https://crabby-curve.surge.sh/", class: "fas fa-external-link-alt"}
                 ],
             image: [
-                {src: "images/simon_game.png", alt: "Simon Game"},
+                {src: simon_game, alt: "Simon Game"},
             ]
         }
     ]
@@ -93,8 +97,8 @@ export default function Projects() {
     //         )
     //     )
     // }
-    let handleClick = () =>{
-        let promoClass = document.querySelector(`.flip-box`);
+    let handleClick = (cardNumber) =>{
+        let promoClass = document.querySelector(`.flip-box-${cardNumber}`);
         promoClass.classList.toggle('is-flipped')
     }
 
@@ -125,16 +129,18 @@ export default function Projects() {
 
         return( 
         <div className={`project-${project.number}`} key={project.title}>                    
-            <section className='flip-box'>
+            <section className={`flip-box flip-box-${project.number}`}>
                 
-                <section className='project-content project-front'>
-                    <figure className="project-image" title={project.image.alt}>
-                        <img src={project.image.src} alt={project.image.alt} />
+                <section className='project-content project-front stacked'>
+                    <figure className="project-image" title={project.image[0].alt}>
+                        <img src={project.image[0].src} alt={project.image[0].alt} />
                     </figure>
-                    <h3 className="project-title">{project.title}</h3>
-                    <button className='card-flip-button' onClick={handleClick}>More Info</button>                
-                    <div className="project-links">{project.links.map(link =>{
-                        return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
+                    <div className='project-content-inner'>
+                        <h3 className="project-title">{project.title}</h3>
+                        <button className='card-flip-button' onClick={() => handleClick(project.number)}>More Info</button>                
+                        <div className="project-links">{project.links.map(link =>{
+                            return(<a href={link.url} target="_blank" rel="noreferrer" key={link.class}><i className={link.class}></i></a>)})}
+                        </div>
                     </div>
                 </section>
 

@@ -38,7 +38,7 @@
     }
   }
 
-  @media screen and (min-width:1226px){
+  @media screen and (max-width:630px){
     .home-header{
       @include gridChild(1,2,1,2);
       
