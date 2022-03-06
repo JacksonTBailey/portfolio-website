@@ -27,22 +27,22 @@ width: auto;
 }
 
 .project-1{
-    @include projectSectionMobile(rotateX);
+    @include projectSectionMobile(rotateY);
 
 }
 
 .project-2{
-    @include projectSectionMobile(rotateX);
+    @include projectSectionMobile(rotateY);
 
 }
 
 .project-3{
-    @include projectSectionMobile(rotateX);
+    @include projectSectionMobile(rotateY);
 
 }
 
 .project-4{
-    @include projectSectionMobile(rotateX);
+    @include projectSectionMobile(rotateY);
 
 }
 
