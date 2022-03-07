@@ -32,17 +32,17 @@ width: auto;
 }
 
 .project-2{
-    @include projectSectionMobile(rotateY);
+    @include projectSectionMobile(rotateY, $gap: 30px);
 
 }
 
 .project-3{
-    @include projectSectionMobile(rotateY);
+    @include projectSectionMobile(rotateY, $gap: 35px);
 
 }
 
 .project-4{
-    @include projectSectionMobile(rotateY);
+    @include projectSectionMobile(rotateY, $gap: 35px);
 
 }
 
@@ -52,23 +52,47 @@ width: auto;
     }
 
     .project-1{
-        @include projectSectionMobile($position: rotateX);
-        aspect-ratio: 1 / 1;
+        @include projectSectionMobile($position: rotateY);
+        .project-tech-used{
+            @include unordered-list(){
+                @include gridParent($gridColumns: repeat(auto-fit, minmax(10%, 1fr)));
+                li{
+                    @include list($padding: 10px 20px)
+                }   
+            }
+        }
     }
 
     .project-2{
-        @include projectSectionMobile($position: rotateY);
-        aspect-ratio: 1 / 1;
+        @include projectSectionMobile($position: rotateY, $gap: 30px);
+        .project-tech-used{
+            @include gridParent($gridColumns: repeat(auto-fit, minmax(10%, 1fr)));
+                    @include list($padding: 10px 20px)
+            }
     }
 
     .project-3{
-        @include projectSectionMobile($position: rotateY);
-        aspect-ratio: 1 / 1;
+        @include projectSectionMobile($position: rotateY, $gap: 35px);
+        .project-tech-used{
+            @include unordered-list(){
+                @include gridParent($gridColumns: repeat(auto-fit, minmax(10%, 1fr)));
+                li{
+                    @include list($padding: 10px 20px)
+                }   
+            }
+        }
     }
 
     .project-4{
-        @include projectSectionMobile($position: rotateX);
-        aspect-ratio: 1 / 1;
+        @include projectSectionMobile($position: rotateY, $gap: 35px);
+        .project-tech-used{
+            @include unordered-list(){
+                @include gridParent($gridColumns: repeat(auto-fit, minmax(10%, 1fr)));
+                li{
+                    @include list($padding: 10px 20px)
+                }   
+            }
+        }    
     }
 }
 
