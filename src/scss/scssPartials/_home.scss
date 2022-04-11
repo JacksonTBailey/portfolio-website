@@ -1,13 +1,13 @@
 @use '../abstracts' as *;
 
 .home-header{
-    @include gridChild(1, 2, 2, 3);
-    @include flexDisplay($justify-content: flex-start, $align-items: flex-start);
-    margin-top: 25vh;
-    min-height: 65vh;
-  
+  @include gridChild(1,2,1,2);
+  @include flexDisplay($justify-content: flex-start, $justify-self: center,$align-items: flex-start);
+  margin-top: 15vh;
+  height: 75vh;
+
     .hero-h1{
-      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px, $margin: 0 0 10px 5px);
+      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px);
     }
   
     .hero-h2{
@@ -16,20 +16,29 @@
       margin-top: 0;
     }
     .hero-h3{
-      @include header2($preferredSize: 4vw, $largestSize: 45px,);
+      @include header2($preferredSize: 4vw, $largestSize: 45px);
       color: $hover-button-color;
       margin-bottom: 25px;
       margin-top: 0;
     }
     .hero-p{
-      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px, $margin: 0 0 10px 5px);
-      max-width: 650px;
+      @include paragraph($smallestSize: 20px, $preferredSize: 5vw, $largestSize: 25px);
+      max-width: 800px;
     }
   
     .top-skills{
       color: $hover-button-color;
     }
   }
+
+  @media screen and (max-width:1225px){
+    .home-header{
+      @include gridChild(1,2,1,2);
+      width: clamp(100px, 90%, 800px);
+
+    }
+  }
+
   
   @media screen and (min-width:630px) and (max-width: 1225px){
     .home-header{
@@ -38,10 +47,10 @@
     }
   }
 
-  @media screen and (max-width:630px){
+  @media (min-width:1226px){
     .home-header{
-      @include gridChild(1,2,1,2);
-      
+      @include gridChild(1, 2, 2, 3);
+      @include flexDisplay($justify-self: flex-start)
     }
 
   }

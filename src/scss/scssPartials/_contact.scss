@@ -8,7 +8,6 @@
     @include gridParent($autoFlow:row, $gridColumns: 75%);
     justify-content:center;
     gap: clamp(1vh, 5vh, 10vh);
-    height: 80vh;
 
     .contact-form-name, .contact-form-email, .contact-form-message{
         @include formInput;
@@ -30,7 +29,7 @@
     }
 }
 .contact-form-name-section{
-    @include gridParent($autoFlow:row, $gridColumns:auto);
+    @include gridParent($autoFlow:row, $gridColumns:100%);
     gap: 20px;
 
     .name-label{
@@ -56,7 +55,7 @@
     
     .contact-form-send-button{
         @include gridChild(1, 2, 1, 2);
-        @include button;
+        @include button($padding: clamp(10px, 10vw, 12px) clamp(20px, 10vw, 30px));
     }
 }
 

@@ -5,29 +5,32 @@
     gap: 5vh;
     flex-direction: column;
     padding: 10vh 0vw;
+    width: 100%;
+    
     
     .footer-quote{
       @include gridChild(1, 2, 1, 2);
-      @include gridParent($gridColumns: 30vw 40vw 30vw);
+      display: grid;
+      justify-content: center;
       gap:20px;
+      width: 100%;
 
       .quote-text{
-        @include gridChild(1, 2, 2, 3);
+        @include gridChild(1, 2, 1, 2);
         @include paragraph($margin:0);
-        justify-self: center;
+        max-width: clamp(200px, 90vw, 600px);
 
       }
       .quote-author{
-        @include gridChild(2, 3, 2, 3);
+        @include gridChild(2, 3, 1, 2);
         @include paragraph($margin:0);
-        justify-self: center;
+        max-width: clamp(200px, 90vw, 600px);
         color: $hover-button-color
       }
     }
 
     .social-icons{
-      @include gridParent($gridColumns: 40vw 4vw 4vw 4vw 40vw);
-      column-gap: clamp(1vw, 1.5vw, 2vw);
+      @include gridParent();
       justify-content: center;
       
       .footer-social{
